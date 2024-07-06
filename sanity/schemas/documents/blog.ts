@@ -40,6 +40,12 @@ export default defineType({
       group: "seo",
     }),
     defineField({
+      name: "ogImage",
+      title: "OG Image",
+      type: "customImage",
+      group: "seo",
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",

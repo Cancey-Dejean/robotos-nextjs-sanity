@@ -12,24 +12,22 @@ export const hero = defineType({
       type: "hideSection",
     }),
     defineField({
-      name: "title",
-      title: "Title",
+      name: "heading",
       type: "string",
+      description: "This field is the title of your project.",
+      title: "Title",
+      validation: (rule) => rule.max(7).required(),
     }),
+
     defineField({
-      name: "description",
-      title: "Description",
+      name: "buttonLabel",
+      title: "Button Label",
       type: "text",
     }),
     defineField({
-      name: "mainImage",
-      title: "Main Image",
-      type: "customImage",
-    }),
-    defineField({
-      name: "ctaButtons",
-      type: "buttonGroup",
-      title: "CTA Buttons",
+      name: "buttonUrl",
+      title: "Button URL",
+      type: "url",
     }),
   ],
   initialValue: {

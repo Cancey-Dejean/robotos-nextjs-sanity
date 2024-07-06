@@ -14,6 +14,7 @@ type InternalUrl = {
 export type NavItem = {
   label: string
   cta?: boolean
+  newTab?: boolean
   className?: string
   internalUrl: InternalUrl | null
   customUrl?: string
@@ -47,6 +48,7 @@ export default function NavLink({
   label,
   customUrl,
   internalUrl,
+  newTab,
   cta,
   className,
   handleMobileMenu,
@@ -61,8 +63,8 @@ export default function NavLink({
         className
       )}
       onClick={handleMobileMenu}
-      target={internalUrl === null ? "_blank" : "_self"}
-      rel={internalUrl === null ? "noopener noreferrer" : undefined}
+      target={newTab ? "_blank" : "_self"}
+      rel={newTab ? "noopener noreferrer" : undefined}
     >
       {label}
     </Link>

@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/fetch"
-import { ALL_SETTINGS_QUERY } from "@/sanity/lib/fragments/settings"
+import { ALL_SETTINGS_QUERY } from "@/sanity/lib/queries/settings"
 
 import { SanityDocument } from "next-sanity"
 

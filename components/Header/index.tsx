@@ -1,7 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/fetch"
 import HeaderContent from "./HeaderContent"
 import { SanityDocument } from "next-sanity"
-import { ALL_SETTINGS_QUERY } from "@/sanity/lib/fragments/settings"
+import { ALL_SETTINGS_QUERY } from "@/sanity/lib/queries/settings"
 
 const Header = async () => {
   const navigation = await sanityFetch<SanityDocument>({
@@ -12,7 +12,7 @@ const Header = async () => {
   const logo = navigation.header.logoImage
   const logoAlt = navigation.header.logoImageAlt
   const settings = navigation.settings[0].companyName
-  console.log(settings)
+  // console.log(settings)
   return (
     <>
       <HeaderContent

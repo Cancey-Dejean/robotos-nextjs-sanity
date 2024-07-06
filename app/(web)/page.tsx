@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { PageContent } from "@/components/PageContent"
 import { Metadata } from "next"
-import { HOME_QUERY } from "@/sanity/lib/fragments/pages/home"
+import { HOME_QUERY } from "@/sanity/lib/queries/pages/home"
 
 export async function generateMetadata(): Promise<Metadata> {
   const homePage = await sanityFetch<SanityDocument>({ query: HOME_QUERY })
@@ -26,6 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const page = await sanityFetch<SanityDocument>({ query: HOME_QUERY })
   const pageBuilder = page[0].pageBuilder
+
+  console.log(pageBuilder)
 
   if (pageBuilder === null) {
     return (

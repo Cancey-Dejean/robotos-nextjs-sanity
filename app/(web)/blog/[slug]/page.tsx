@@ -5,8 +5,10 @@ import { notFound } from "next/navigation"
 import { sanityFetch } from "@/sanity/lib/fetch"
 import Post from "@/components/Blog/Post"
 import { format } from "date-fns"
-import { POSTS_QUERY, POST_QUERY } from "@/sanity/lib/fragments/pages/post"
+
 import { dateFormat } from "@/constants"
+import { POST_QUERY } from "@/sanity/lib/queries/pages/post"
+import { POSTS_QUERY } from "@/sanity/lib/queries/allPosts"
 
 export async function generateMetadata({
   params,

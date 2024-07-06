@@ -39,8 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 [Placeholder Images](https://plaiceholder.co/docs)
 
-[Sanity Shopify Studion Example Code](https://github.com/sanity-io/sanity-shopify-studio/tree/main)
-
 [Visual Editing with Next.js App Router and Sanity Studio](https://www.sanity.io/guides/nextjs-app-router-live-preview)
 
 [Query Cheat Sheet - GROQ](https://www.sanity.io/docs/query-cheat-sheet)

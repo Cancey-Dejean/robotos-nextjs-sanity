@@ -1,7 +1,7 @@
 import { groq } from "next-sanity"
 
 // Get Sitesettings
-export const SETTINGS_QUERY = groq`
+const SETTINGS_QUERY = groq`
  "settings": *[_type == "siteSettings"] {
     companyName
   }

@@ -35,6 +35,11 @@ export const navItem = defineType({
         }),
     }),
     defineField({
+      name: "newTab",
+      type: "boolean",
+      title: "Open in new tab?",
+    }),
+    defineField({
       name: "cta",
       type: "boolean",
       title: "Call to action",
@@ -43,5 +48,6 @@ export const navItem = defineType({
   initialValue: {
     label: "Button",
     cta: false,
+    newTab: false,
   },
 })
