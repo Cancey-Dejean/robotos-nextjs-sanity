@@ -7,28 +7,32 @@ export default defineType({
   type: "document",
   icon: IoHomeOutline,
   fields: [
-    {
+    defineField({
       name: "title",
       type: "string",
       title: "Menu Title",
-      validation: (Rule: Rule) => Rule.required(),
-    },
-    {
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: "menuList",
       type: "array",
-      title: "Menu List",
+      title: "Title",
       of: [{ type: "navItem" }],
-      validation: (Rule: Rule) => Rule.required(),
-    },
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     select: {
       title: "title",
+      subtitle: "Navigation",
     },
-    prepare({ title }) {
+    prepare(selection) {
+      const { title, subtitle } = selection
       return {
-        subtitle: "Navigation",
-        title,
+        title: title || "Title needs to be set",
+        subtitle: subtitle,
+        media: IoHomeOutline,
       }
     },
   },

@@ -1,11 +1,16 @@
+import { FaRegImage } from "react-icons/fa6"
 import { defineField, defineType } from "sanity"
-import { Rule } from "sanity"
 
 export const hero = defineType({
   name: "hero",
   type: "object",
   title: "Hero",
   fields: [
+    // defineField({
+    //   name: "previewImage",
+    //   type: "image",
+    //   title: "Preview Image",
+    // }),
     defineField({
       name: "hideSection",
       title: "Hide Section",
@@ -31,7 +36,23 @@ export const hero = defineType({
     }),
   ],
   initialValue: {
-    title: "Title",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    heading: "Title",
+    buttonLabel: "Learn More",
+    buttonUrl: "https://example.com",
+  },
+  preview: {
+    select: {
+      title: "heading",
+
+      media: "image",
+    },
+    prepare(selection) {
+      const { title, media } = selection
+      return {
+        title: title || "Title needs to be set",
+        subtitle: "Hero",
+        media: media || FaRegImage,
+      }
+    },
   },
 })

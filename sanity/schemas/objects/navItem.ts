@@ -1,9 +1,11 @@
+import { IoIosLink } from "react-icons/io"
 import { defineField, defineType } from "sanity"
 
 export const navItem = defineType({
   name: "navItem",
   title: "Navigation Item",
   type: "object",
+  icon: IoIosLink, // Use the imported icon here
   fields: [
     defineField({
       name: "label",
@@ -49,5 +51,18 @@ export const navItem = defineType({
     label: "Button",
     cta: false,
     newTab: false,
+  },
+  preview: {
+    select: {
+      title: "label",
+      subtitle: "customUrl",
+    },
+    prepare({ title, subtitle }) {
+      return {
+        title,
+        subtitle: subtitle ? subtitle : "No custom URL",
+        media: IoIosLink, // Use the imported icon in the preview
+      }
+    },
   },
 })
