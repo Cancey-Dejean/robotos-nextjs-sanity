@@ -11,10 +11,16 @@ const Header = async () => {
   const menuList = navigation.header.menu.menuList
   const logo = navigation.header.logoImage
   const logoAlt = navigation.header.logoImageAlt
-  console.log(menuList)
+  const settings = navigation.settings[0].companyName
+  console.log(settings)
   return (
     <>
-      <HeaderContent menuList={menuList} logoSrc={logo} logoAlt={logoAlt} />
+      <HeaderContent
+        menuList={menuList}
+        logoSrc={logo}
+        logoAlt={logoAlt}
+        companyName={settings}
+      />
     </>
   )
 }

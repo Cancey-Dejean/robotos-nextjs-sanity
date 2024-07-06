@@ -16,10 +16,12 @@ export default function HeaderContent({
   menuList,
   logoSrc,
   logoAlt,
+  companyName,
 }: {
   logoSrc?: string
   logoAlt?: string
   menuList: NavItem[]
+  companyName?: string
 }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [hiddenMenu, setHiddenMenu] = useState(false)
@@ -68,7 +70,7 @@ export default function HeaderContent({
             className={`after:absolute after:inset-0 ${NavlinkStyles}`}
             onClick={menuOpen ? handleMobileMenu : undefined}
           >
-            Robotos
+            {companyName}
           </Link>
         </div>
 

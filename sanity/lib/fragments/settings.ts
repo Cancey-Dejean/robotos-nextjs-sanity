@@ -1,5 +1,12 @@
 import { groq } from "next-sanity"
 
+// Get Sitesettings
+export const SETTINGS_QUERY = groq`
+ "settings": *[_type == "siteSettings"] {
+    companyName
+  }
+`
+
 // Get Header Settings
 const HEADER_QUERY = groq`
   "header": *[_type == "header"][0] {
@@ -31,6 +38,7 @@ const FOOTER_QUERY = groq`
 
 // Get All Settings
 export const ALL_SETTINGS_QUERY = groq`{
+  ${SETTINGS_QUERY},
   ${HEADER_QUERY},
   ${FOOTER_QUERY}
 }`

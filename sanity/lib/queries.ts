@@ -2,17 +2,11 @@ import { groq } from "next-sanity"
 import { client } from "./client"
 
 // Get settings
-// export const settingsQuery = groq`
-//  *[_type == "settings"][0]{
-//    footer,
-//    menuItems[]->{
-//      _type,
-//      "slug": slug.current,
-//      title
-//    },
-//    ogImage,
-//  }
-// `
+export const settingsQuery = groq`
+ *[_type == "siteSettings"] {
+    companyName
+  }
+`
 
 // Get all categories
 export const ALL_CATEGORIES_QUERY = groq`*[_type == "category"] {
