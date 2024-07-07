@@ -6,5 +6,8 @@ import { HERO_FIELDS } from "../fragments/heroFields"
 // Get Homepage
 export const HOME_QUERY = groq`*[_type == "homepage"] {
   ${PAGE_FIELDS},
-  ${ALL_SECTIONS_QUERY}
+  pageBuilder [] {
+    _type,
+    ${ALL_SECTIONS_QUERY}
+  }
 }`

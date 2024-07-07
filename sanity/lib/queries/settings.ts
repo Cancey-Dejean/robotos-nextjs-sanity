@@ -14,15 +14,10 @@ const HEADER_QUERY = groq`
     "logoImageAlt": logoImage.alt,
     menu-> {
       menuList [] {
-          label,
-          cta,
-          customUrl,
-          internalUrl {
-            url-> {
-              _type,
-              "currentSlug": slug.current
-            }
-          }
+        cta,
+        link {
+          ...,
+        }
       }
     }
   }

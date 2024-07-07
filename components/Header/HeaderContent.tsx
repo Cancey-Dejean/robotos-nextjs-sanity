@@ -78,7 +78,7 @@ export default function HeaderContent({
         <nav className="flex items-center gap-4">
           <ul className="hidden items-center sm:flex">
             {menuList.map(({ label, cta, customUrl, internalUrl }) => (
-              <li key={`navlink-${label}`}>
+              <li key={label}>
                 <NavLink
                   label={label}
                   cta={cta}
@@ -98,7 +98,7 @@ export default function HeaderContent({
             )}
           >
             {menuList.map(({ label, cta, customUrl, internalUrl }) => (
-              <li key={`mobile-menu-name-${label}`} className="w-full">
+              <li key={label} className="w-full">
                 <NavLink
                   customUrl={customUrl}
                   internalUrl={internalUrl}

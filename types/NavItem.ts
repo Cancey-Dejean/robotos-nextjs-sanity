@@ -8,11 +8,12 @@ type InternalUrl = {
 }
 
 export type NavItem = {
-  label: string
-  cta?: boolean
   className?: string
   internalUrl: InternalUrl | null
   customUrl?: string
+  newTab?: boolean
+  label: string
+  cta?: boolean
   handleMobileMenu?: () => void
 }
 

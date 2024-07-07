@@ -5,41 +5,12 @@ export const navItem = defineType({
   name: "navItem",
   title: "Navigation Item",
   type: "object",
-  icon: IoIosLink, // Use the imported icon here
+  icon: IoIosLink,
   fields: [
     defineField({
-      name: "label",
-      type: "string",
-      title: "Label",
-    }),
-    defineField({
-      name: "internalUrl",
-      title: "Internal Url",
-      type: "object",
-      fields: [
-        {
-          title: "Url",
-          name: "url",
-          description: "Select pages for navigation",
-          type: "reference",
-          to: [{ type: "page" }, { type: "homepage" }, { type: "blog" }],
-        },
-      ],
-    }),
-    defineField({
-      name: "customUrl",
-      title: "Custom Url",
-      type: "url",
-      validation: (Rule) =>
-        Rule.uri({
-          scheme: ["http", "https", "mailto", "tel"],
-          allowRelative: true,
-        }),
-    }),
-    defineField({
-      name: "newTab",
-      type: "boolean",
-      title: "Open in new tab?",
+      name: "link",
+      title: "Link",
+      type: "link",
     }),
     defineField({
       name: "cta",
@@ -48,20 +19,20 @@ export const navItem = defineType({
     }),
   ],
   initialValue: {
-    label: "Button",
     cta: false,
-    newTab: false,
   },
   preview: {
     select: {
-      title: "label",
-      subtitle: "customUrl",
+      title: "link.label",
+      subtitle: "link.customUrl",
+      internalLink: "link.internalLink",
     },
-    prepare({ title, subtitle }) {
+    prepare({ title, subtitle, internalLink }) {
       return {
-        title,
-        subtitle: subtitle ? subtitle : "No custom URL",
-        media: IoIosLink, // Use the imported icon in the preview
+        title: title || "Label needs to be set",
+        subtitle:
+          subtitle || (internalLink ? "Internal link set" : "No URL present"),
+        media: IoIosLink,
       }
     },
   },

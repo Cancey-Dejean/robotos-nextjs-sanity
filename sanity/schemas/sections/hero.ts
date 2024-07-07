@@ -23,16 +23,10 @@ export const hero = defineType({
       title: "Title",
       validation: (rule) => rule.max(7).required(),
     }),
-
     defineField({
-      name: "buttonLabel",
-      title: "Button Label",
-      type: "text",
-    }),
-    defineField({
-      name: "buttonUrl",
-      title: "Button URL",
-      type: "url",
+      name: "cta",
+      title: "Button",
+      type: "link",
     }),
   ],
   initialValue: {

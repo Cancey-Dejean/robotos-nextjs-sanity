@@ -27,7 +27,7 @@ export default async function Home() {
   const page = await sanityFetch<SanityDocument>({ query: HOME_QUERY })
   const pageBuilder = page[0].pageBuilder
 
-  console.log(pageBuilder)
+  // console.log(pageBuilder)
 
   if (pageBuilder === null) {
     return (
@@ -37,5 +37,5 @@ export default async function Home() {
     )
   }
 
-  return <>{pageBuilder.sections.map(PageContent)}</>
+  return <>{pageBuilder.map(PageContent)}</>
 }

@@ -1,5 +1,5 @@
 import { IoHomeOutline } from "react-icons/io5"
-import { Rule, defineField, defineType } from "sanity"
+import { defineField, defineType } from "sanity"
 
 export default defineType({
   name: "navigation",
@@ -11,13 +11,13 @@ export default defineType({
       name: "title",
       type: "string",
       title: "Menu Title",
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.error("Title is required").required(),
     }),
 
     defineField({
       name: "menuList",
       type: "array",
-      title: "Title",
+      title: "Menu List",
       of: [{ type: "navItem" }],
       validation: (rule) => rule.required(),
     }),

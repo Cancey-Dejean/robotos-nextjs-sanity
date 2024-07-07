@@ -1,23 +1,15 @@
 import { NavlinkStyles } from "@/constants/styles"
 import { cn } from "@/lib/utils"
+import { InternalUrl } from "@/types"
 import Link from "next/link"
 
-type UrlObject = {
-  _type: string
-  currentSlug?: string
-}
-
-type InternalUrl = {
-  url: UrlObject
-}
-
-export type NavItem = {
-  label: string
-  cta?: boolean
-  newTab?: boolean
+type NavItem = {
   className?: string
   internalUrl: InternalUrl | null
   customUrl?: string
+  newTab?: boolean
+  label: string
+  cta?: boolean
   handleMobileMenu?: () => void
 }
 
@@ -45,10 +37,10 @@ const getHref = (
 }
 
 export default function NavLink({
-  label,
-  customUrl,
   internalUrl,
+  customUrl,
   newTab,
+  label,
   cta,
   className,
   handleMobileMenu,
@@ -67,6 +59,8 @@ export default function NavLink({
       rel={newTab ? "noopener noreferrer" : undefined}
     >
       {label}
+
+      {cta && <span className="ml-2">→</span>}
     </Link>
   )
 }
