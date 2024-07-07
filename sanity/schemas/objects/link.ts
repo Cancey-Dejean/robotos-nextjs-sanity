@@ -34,10 +34,18 @@ export const link = defineType({
       type: "boolean",
       title: "Open in new tab?",
     }),
+    defineField({
+      name: "cta",
+      type: "boolean",
+      title: "Call to action",
+      description:
+        "Optional for all links but required for Call to action link in Navigation bar",
+    }),
   ],
   initialValue: {
     label: "Button",
     newTab: false,
+    cta: false,
   },
   preview: {
     select: {

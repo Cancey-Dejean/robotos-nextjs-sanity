@@ -1,11 +1,4 @@
-type UrlObject = {
-  _type: string
-  currentSlug?: string
-}
-
-type InternalUrl = {
-  url: UrlObject
-}
+import { InternalUrl } from "."
 
 export type NavItem = {
   className?: string

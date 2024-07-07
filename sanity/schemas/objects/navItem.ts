@@ -12,15 +12,7 @@ export const navItem = defineType({
       title: "Link",
       type: "link",
     }),
-    defineField({
-      name: "cta",
-      type: "boolean",
-      title: "Call to action",
-    }),
   ],
-  initialValue: {
-    cta: false,
-  },
   preview: {
     select: {
       title: "link.label",

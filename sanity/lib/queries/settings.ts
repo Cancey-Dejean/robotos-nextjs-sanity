@@ -14,7 +14,6 @@ const HEADER_QUERY = groq`
     "logoImageAlt": logoImage.alt,
     menu-> {
       menuList [] {
-        cta,
         link {
           ...,
         }
