@@ -21,12 +21,12 @@ export const hero = defineType({
       type: "string",
       description: "This field is the title of your project.",
       title: "Title",
-      validation: (rule) => rule.max(7).required(),
+      validation: (rule) => rule.max(7),
     }),
     defineField({
-      name: "cta",
+      name: "button",
       title: "Button",
-      type: "link",
+      type: "button",
     }),
   ],
   initialValue: {
@@ -37,13 +37,12 @@ export const hero = defineType({
   preview: {
     select: {
       title: "heading",
-
       media: "image",
     },
     prepare(selection) {
       const { title, media } = selection
       return {
-        title: title || "Title needs to be set",
+        title: title || "Robotos",
         subtitle: "Hero",
         media: media || FaRegImage,
       }

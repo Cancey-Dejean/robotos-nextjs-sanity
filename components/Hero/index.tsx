@@ -19,27 +19,19 @@ import { robots } from "@/lib/animations"
 import { cn } from "@/lib/utils"
 import { Link } from "next-view-transitions"
 import Image from "next/image"
+import { NavItem } from "@/types/NavItem"
 
 export default function Hero({
   heading,
-  buttonLabel,
   buttonUrl,
   buttonVariant,
-  // newTab,
-  // mainImage,
-  // mainImageAlt,
-  // ctaButtons,
+  buttonLabel,
 }: {
-  _type?: string
   heading?: string
-  buttonLabel?: string
   buttonUrl?: string
+  buttonLabel?: string
   buttonVariant?: ButtonProps["variant"]
-  // newTab?: boolean
-  // mainImage?: string
-  // mainImageAlt?: string
-  // ctaButtons: ButtonProps[]
-}) {
+} & NavItem) {
   const { scrollY } = useScroll()
   const imageContainerStyles = "absolute"
 
@@ -88,8 +80,9 @@ export default function Hero({
         </h1>
 
         {/* Button */}
+
         <Button variant={buttonVariant} asChild>
-          <Link href={buttonUrl || "/"}>{buttonLabel}</Link>
+          <Link href={buttonUrl || "url-not-set"}>{buttonLabel}</Link>
         </Button>
 
         {/* Availability */}
@@ -259,13 +252,6 @@ export default function Hero({
         url={mainImage || "https://dummyimage.com/618x618.png/dddddd/ffffff"}
         alt={mainImageAlt}
       /> */}
-
-      {/* {ctaButtons &&
-        ctaButtons.map(({ variant, label }) => (
-          <Button key={label} asChild variant={variant}>
-            <Link href="/">{label}</Link>
-          </Button>
-        ))} */}
     </motion.section>
   )
 }

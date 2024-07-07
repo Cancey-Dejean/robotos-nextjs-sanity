@@ -8,11 +8,11 @@ const Header = async () => {
     query: ALL_SETTINGS_QUERY,
   })
 
-  const menuList = navigation.header.menu.menuList.map((item: any) => item.link)
+  const menuList = navigation.header.menu.menuList
   const logo = navigation.header.logoImage
   const logoAlt = navigation.header.logoImageAlt
   const settings = navigation.settings[0].companyName
-  console.log(menuList)
+  // console.log(menuList)
   return (
     <>
       <HeaderContent

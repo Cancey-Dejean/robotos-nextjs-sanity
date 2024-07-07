@@ -8,22 +8,45 @@ export const navItem = defineType({
   icon: IoIosLink,
   fields: [
     defineField({
-      name: "link",
-      title: "Link",
-      type: "link",
+      name: "label",
+      title: "Label",
+      type: "string",
+    }),
+    defineField({
+      name: "url",
+      title: "Url",
+      type: "url",
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ["http", "https", "mailto", "tel"],
+          allowRelative: true,
+        }),
+    }),
+    defineField({
+      name: "newTab",
+      type: "boolean",
+      title: "Open in new tab?",
+    }),
+    defineField({
+      name: "cta",
+      type: "boolean",
+      title: "Call to action",
     }),
   ],
+  initialValue: {
+    label: "Link",
+    newTab: false,
+    cta: false,
+  },
   preview: {
     select: {
-      title: "link.label",
-      subtitle: "link.customUrl",
-      internalLink: "link.internalLink",
+      title: "label",
+      subtitle: "url",
     },
-    prepare({ title, subtitle, internalLink }) {
+    prepare({ title, subtitle }) {
       return {
         title: title || "Label needs to be set",
-        subtitle:
-          subtitle || (internalLink ? "Internal link set" : "No URL present"),
+        subtitle: subtitle || "No URL present",
         media: IoIosLink,
       }
     },

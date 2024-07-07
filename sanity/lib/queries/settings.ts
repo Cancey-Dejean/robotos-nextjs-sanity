@@ -13,10 +13,12 @@ const HEADER_QUERY = groq`
     "logoImage": logoImage.asset->url,
     "logoImageAlt": logoImage.alt,
     menu-> {
+      ...,
       menuList [] {
-        link {
-          ...,
-        }
+        label,
+        cta,
+        newTab,
+        url
       }
     }
   }

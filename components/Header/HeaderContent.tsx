@@ -77,14 +77,9 @@ export default function HeaderContent({
         {/* Menu */}
         <nav className="flex items-center gap-4">
           <ul className="hidden items-center sm:flex">
-            {menuList.map(({ label, cta, customUrl, internalUrl }) => (
+            {menuList.map(({ label, cta, newTab, url }) => (
               <li key={label}>
-                <NavLink
-                  label={label}
-                  cta={cta}
-                  internalUrl={internalUrl}
-                  customUrl={customUrl}
-                />
+                <NavLink newTab={newTab} label={label} cta={cta} url={url} />
               </li>
             ))}
           </ul>
@@ -97,11 +92,11 @@ export default function HeaderContent({
                 : "-translate-x-full opacity-0"
             )}
           >
-            {menuList.map(({ label, cta, customUrl, internalUrl }) => (
+            {menuList.map(({ label, cta, newTab, url }) => (
               <li key={label} className="w-full">
                 <NavLink
-                  customUrl={customUrl}
-                  internalUrl={internalUrl}
+                  newTab={newTab}
+                  url={url}
                   label={label}
                   cta={cta}
                   className="w-full text-3xl"
