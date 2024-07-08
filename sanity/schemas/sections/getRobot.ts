@@ -1,10 +1,10 @@
 import { FaRegImage } from "react-icons/fa6"
 import { defineField, defineType } from "sanity"
 
-export const hero = defineType({
-  name: "hero",
+export const getRobot = defineType({
+  name: "getRobot",
   type: "object",
-  title: "Hero",
+  title: "Get Robot",
   fields: [
     defineField({
       name: "previewImage",
@@ -41,7 +41,7 @@ export const hero = defineType({
       const { title, media } = selection
       return {
         title: title || "Robotos",
-        subtitle: "Hero",
+        subtitle: "Get Robot",
         media: media || FaRegImage,
       }
     },

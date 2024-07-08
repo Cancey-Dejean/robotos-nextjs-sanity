@@ -20,6 +20,8 @@ import category from "./schemas/singletons/category"
 import author from "./schemas/singletons/author"
 
 import { hero } from "./schemas/sections/hero"
+import { getRobot } from "./schemas/sections/getRobot"
+import { previewThumbnail } from "./schemas/objects/previewThumbnail"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -36,7 +38,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navItem,
     buttonGroup,
     pageSections,
+    previewThumbnail,
     hero,
+    getRobot,
 
     // Singletons
     homepage,
