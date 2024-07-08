@@ -7,5 +7,6 @@ export const pageSections = defineType({
     { type: "hero" },
     { type: "getRobots" },
     { type: "intermission" },
+    { type: "rarity" },
   ],
 })

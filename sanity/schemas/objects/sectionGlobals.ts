@@ -22,10 +22,6 @@ export const sectionGlobals = defineType({
   options: {
     collapsed: true,
   },
-  initialValue: {
-    label: "MINT ROBOTOS",
-    variant: "default",
-  },
   preview: {
     select: {
       title: "label",

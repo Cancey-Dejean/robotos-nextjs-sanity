@@ -24,6 +24,7 @@ import { getRobots } from "./schemas/sections/getRobots"
 import { sectionGlobals } from "./schemas/objects/sectionGlobals"
 import { showAvailability } from "./schemas/objects/showAvailability"
 import { intermission } from "./schemas/sections/intermission"
+import { rarity } from "./schemas/sections/rarity"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -45,6 +46,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     hero,
     getRobots,
     intermission,
+    rarity,
 
     // Singletons
     homepage,
