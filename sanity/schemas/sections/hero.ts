@@ -9,7 +9,7 @@ export const hero = defineType({
     defineField({
       name: "globals",
       type: "sectionGlobals",
-      title: "Section Globals",
+      title: "Globals",
     }),
     defineField({
       name: "heading",
@@ -21,6 +21,11 @@ export const hero = defineType({
       name: "button",
       title: "Button",
       type: "button",
+    }),
+    defineField({
+      name: "availability",
+      title: "Show Availability?",
+      type: "showAvailability",
     }),
   ],
   initialValue: {

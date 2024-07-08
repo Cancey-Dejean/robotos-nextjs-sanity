@@ -1,4 +1,6 @@
+import GetRobots from "./GetRobots"
 import Hero from "./Hero"
+import Intermission from "./Intermission"
 
 export const PageContent = (section: any) => {
   switch (section._type) {
@@ -12,6 +14,11 @@ export const PageContent = (section: any) => {
           {...section}
         />
       )
+    case "getRobots":
+      return <GetRobots key={section._type} {...section} />
+
+    case "intermission":
+      return <Intermission key={section._type} {...section} />
 
     default:
       return (

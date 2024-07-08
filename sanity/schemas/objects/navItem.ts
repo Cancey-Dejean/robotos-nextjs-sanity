@@ -26,11 +26,13 @@ export const navItem = defineType({
       name: "newTab",
       type: "boolean",
       title: "Open in new tab?",
+      initialValue: false,
     }),
     defineField({
       name: "cta",
       type: "boolean",
       title: "Call to action",
+      initialValue: false,
     }),
   ],
   initialValue: {

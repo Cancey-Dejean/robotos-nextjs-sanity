@@ -1,8 +1,17 @@
 import { groq } from "next-sanity"
 import { HERO_FIELDS } from "./heroFields"
-import { GET_ROBOT_FIELDS } from "./getRobotFields"
+import { GET_ROBOTS_FIELDS } from "./getRobotFields"
 
 export const ALL_SECTIONS_QUERY = groq`
-  ${HERO_FIELDS},
-  ${GET_ROBOT_FIELDS},
+  _type == "hero" => {
+    ${HERO_FIELDS}
+  },
+
+  _type == "getRobots" => {
+    ${GET_ROBOTS_FIELDS}
+  },
+
+  _type == "intermission" => {
+    ...
+  },
 `

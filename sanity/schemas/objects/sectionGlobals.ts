@@ -3,14 +3,15 @@ import { defineField, defineType } from "sanity"
 
 export const sectionGlobals = defineType({
   name: "sectionGlobals",
-  title: "Section lobals",
   type: "object",
   icon: FaRegHandPointer,
+  description: "Global settings for sections",
   fields: [
     defineField({
       name: "previewImage",
       type: "image",
       title: "Preview Image",
+      description: "Image size: 1920x1080",
     }),
     defineField({
       name: "hideSection",
@@ -18,6 +19,9 @@ export const sectionGlobals = defineType({
       type: "hideSection",
     }),
   ],
+  options: {
+    collapsed: true,
+  },
   initialValue: {
     label: "MINT ROBOTOS",
     variant: "default",

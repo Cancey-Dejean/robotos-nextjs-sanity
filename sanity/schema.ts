@@ -20,8 +20,10 @@ import category from "./schemas/singletons/category"
 import author from "./schemas/singletons/author"
 
 import { hero } from "./schemas/sections/hero"
-import { getRobot } from "./schemas/sections/getRobot"
+import { getRobots } from "./schemas/sections/getRobots"
 import { sectionGlobals } from "./schemas/objects/sectionGlobals"
+import { showAvailability } from "./schemas/objects/showAvailability"
+import { intermission } from "./schemas/sections/intermission"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -35,12 +37,14 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     bodyText,
     excerpt,
     hideSection,
+    showAvailability,
     navItem,
     buttonGroup,
     pageSections,
     sectionGlobals,
     hero,
-    getRobot,
+    getRobots,
+    intermission,
 
     // Singletons
     homepage,

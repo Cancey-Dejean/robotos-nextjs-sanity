@@ -26,11 +26,13 @@ export default function Hero({
   buttonUrl,
   buttonVariant,
   buttonLabel,
+  availability,
 }: {
   heading?: string
   buttonUrl?: string
   buttonLabel?: string
-  buttonVariant?: ButtonProps["variant"]
+  buttonVariant?: ButtonProps["variant"],
+  availability?: boolean
 } & NavItem) {
   const { scrollY } = useScroll()
   const imageContainerStyles = "absolute"
@@ -86,9 +88,12 @@ export default function Hero({
         </Button>
 
         {/* Availability */}
-        <div className="hidden sm:block">
-          <Availability />
-        </div>
+        {availability &&
+          <div className="hidden sm:block">
+            <Availability />
+          </div>
+        }
+
       </motion.div>
 
       {/* Images */}
@@ -248,10 +253,6 @@ export default function Hero({
         </motion.div>
       </motion.div>
 
-      {/* <DynamicImage
-        url={mainImage || "https://dummyimage.com/618x618.png/dddddd/ffffff"}
-        alt={mainImageAlt}
-      /> */}
     </motion.section>
   )
 }

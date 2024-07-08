@@ -1,6 +1,6 @@
 import { groq } from "next-sanity"
 
-export const LINK_FIELDS = groq`
+export const BUTTON_FIELDS = groq`
   label,
   newTab,
   url,

@@ -1,15 +1,15 @@
 import { FaRegImage } from "react-icons/fa6"
 import { defineField, defineType } from "sanity"
 
-export const getRobot = defineType({
-  name: "getRobot",
+export const getRobots = defineType({
+  name: "getRobots",
   type: "object",
-  title: "Get Robot",
+  title: "Get Robots",
   fields: [
     defineField({
       name: "globals",
       type: "sectionGlobals",
-      title: "Section Globals",
+      title: "Globals",
     }),
     defineField({
       name: "image",
@@ -32,6 +32,11 @@ export const getRobot = defineType({
       name: "button",
       title: "Button",
       type: "button",
+    }),
+    defineField({
+      name: "availability",
+      title: "Show Availability?",
+      type: "showAvailability",
     }),
   ],
   initialValue: {

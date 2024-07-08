@@ -5,4 +5,5 @@ export const hideSection = defineType({
   title: "Hide Section",
   type: "boolean",
   description: "If true, this section will be hidden",
+  initialValue: false,
 })
