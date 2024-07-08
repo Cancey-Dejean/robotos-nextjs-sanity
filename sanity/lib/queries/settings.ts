@@ -15,8 +15,8 @@ const HEADER_QUERY = groq`
     menu-> {
       ...,
       menuList [] {
-        label,
         cta,
+        label,
         newTab,
         url
       }

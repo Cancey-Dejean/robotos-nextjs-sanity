@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity"
+import { defineType } from "sanity"
 
 export const pageSections = defineType({
   name: "pageSections",
@@ -7,7 +7,4 @@ export const pageSections = defineType({
     { name: "hero", type: "hero" },
     { name: "getRobot", type: "getRobot" },
   ],
-  options: {
-    layout: "grid",
-  },
 })

@@ -7,21 +7,26 @@ export const getRobot = defineType({
   title: "Get Robot",
   fields: [
     defineField({
-      name: "previewImage",
-      type: "previewThumbnail",
-      title: "Preview Image",
+      name: "globals",
+      type: "sectionGlobals",
+      title: "Section Globals",
     }),
     defineField({
-      name: "hideSection",
-      title: "Hide Section",
-      type: "hideSection",
+      name: "image",
+      type: "customImage",
+      title: "Top Image",
     }),
     defineField({
       name: "heading",
       type: "string",
-      description: "This field is the title of your project.",
-      title: "Title",
-      validation: (rule) => rule.max(7),
+      title: "Heading",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "text",
+      title: "Text",
+      type: "array",
+      of: [{ type: "block", title: "Block" }],
     }),
     defineField({
       name: "button",
@@ -35,7 +40,7 @@ export const getRobot = defineType({
   preview: {
     select: {
       title: "heading",
-      media: "previewImage",
+      media: "globals.previewImage",
     },
     prepare(selection) {
       const { title, media } = selection

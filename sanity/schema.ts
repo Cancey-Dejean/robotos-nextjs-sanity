@@ -21,7 +21,7 @@ import author from "./schemas/singletons/author"
 
 import { hero } from "./schemas/sections/hero"
 import { getRobot } from "./schemas/sections/getRobot"
-import { previewThumbnail } from "./schemas/objects/previewThumbnail"
+import { sectionGlobals } from "./schemas/objects/sectionGlobals"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -38,7 +38,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navItem,
     buttonGroup,
     pageSections,
-    previewThumbnail,
+    sectionGlobals,
     hero,
     getRobot,
 

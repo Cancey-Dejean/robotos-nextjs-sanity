@@ -7,19 +7,13 @@ export const hero = defineType({
   title: "Hero",
   fields: [
     defineField({
-      name: "previewImage",
-      type: "previewThumbnail",
-      title: "Preview Image",
-    }),
-    defineField({
-      name: "hideSection",
-      title: "Hide Section",
-      type: "hideSection",
+      name: "globals",
+      type: "sectionGlobals",
+      title: "Section Globals",
     }),
     defineField({
       name: "heading",
       type: "string",
-      description: "This field is the title of your project.",
       title: "Title",
       validation: (rule) => rule.max(7),
     }),
@@ -35,7 +29,7 @@ export const hero = defineType({
   preview: {
     select: {
       title: "heading",
-      media: "previewImage",
+      media: "globals.previewImage",
     },
     prepare(selection) {
       const { title, media } = selection
