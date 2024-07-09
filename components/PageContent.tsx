@@ -2,6 +2,7 @@ import GetRobots from "./GetRobots"
 import Hero from "./Hero"
 import Intermission from "./Intermission"
 import Rarity from "./Rarity"
+import RecentBlogs from "./RecentBlogs"
 
 export const PageContent = (section: any) => {
   switch (section._type) {
@@ -23,6 +24,9 @@ export const PageContent = (section: any) => {
 
     case "rarity":
       return <Rarity key={section._type} {...section} />
+
+    case "recentBlogs":
+      return <RecentBlogs key={section._type} {...section} />
 
     default:
       return (

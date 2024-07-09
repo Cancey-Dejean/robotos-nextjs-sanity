@@ -7,7 +7,7 @@ import { containerStaggerVariants, itemVariants } from "@/lib/animations"
 import { motion, useInView } from "framer-motion"
 import { blogs } from "@/constants"
 
-export default function RecentBlogs() {
+export default function RecentBlogs({ heading }: { heading: string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -15,7 +15,7 @@ export default function RecentBlogs() {
     <section className="bg-white px-5 py-16 md:py-32">
       <Container>
         <SectionTitle as={"h2"} className="mb-5">
-          RECENT BLOGS
+          {heading}
         </SectionTitle>
 
         <motion.div

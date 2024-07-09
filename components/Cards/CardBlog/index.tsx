@@ -1,7 +1,7 @@
-import React from "react";
-import Card from "../Card";
-import Link from "next/link";
-import Image from "next/image";
+import React from "react"
+import Card from "../Card"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function CardBlog({
   image,
@@ -11,12 +11,12 @@ export default function CardBlog({
   buttonText,
   url,
 }: {
-  image?: string;
-  imageAlt?: string;
-  title: string;
-  excerpt?: string;
-  buttonText?: string;
-  url: string;
+  image?: string
+  imageAlt?: string
+  title: string
+  excerpt?: string
+  buttonText?: string
+  url: string
 }) {
   return (
     <Card className="relative flex flex-col items-start gap-5 p-4 md:p-5">
@@ -34,9 +34,19 @@ export default function CardBlog({
         <div className="line-clamp-3">{excerpt}</div>
       </div>
 
-      <Link href={url} className="mt-auto after:absolute after:inset-0">
-        {buttonText || "Read More"} →
-      </Link>
+      <div className="mt-auto flex items-center gap-2 justify-between w-full">
+        <Link href={url} className="after:absolute after:inset-0">
+          {buttonText || "Read More"} →
+        </Link>
+
+        <Image
+          src="https://dummyimage.com/50x50.png/eb0d18/ffffff"
+          width={50}
+          height={50}
+          alt=""
+          className="object-cover rounded-full"
+        />
+      </div>
     </Card>
-  );
+  )
 }

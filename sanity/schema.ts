@@ -27,6 +27,7 @@ import { showAvailability } from "./schemas/objects/showAvailability"
 import { intermission } from "./schemas/sections/intermission"
 import { rarity } from "./schemas/sections/rarity"
 import { rarityTextRow } from "./schemas/objects/rarityTextRow"
+import { recentBlogs } from "./schemas/sections/recentBlogs"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -51,6 +52,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     intermission,
     rarity,
     rarityTextRow,
+    recentBlogs,
 
     // Singletons
     homepage,

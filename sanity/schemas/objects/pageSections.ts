@@ -8,5 +8,6 @@ export const pageSections = defineType({
     { type: "getRobots" },
     { type: "intermission" },
     { type: "rarity" },
+    { type: "recentBlogs" },
   ],
 })
