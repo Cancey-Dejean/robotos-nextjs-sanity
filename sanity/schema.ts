@@ -2,6 +2,7 @@ import { type SchemaTypeDefinition } from "sanity"
 
 import page from "./schemas/documents/page"
 import blog from "./schemas/documents/blog"
+import rarityList from "./schemas/documents/rarityList"
 
 import { customImage } from "./schemas/objects/customImage"
 import { bodyText } from "./schemas/objects/bodyText"
@@ -25,6 +26,7 @@ import { sectionGlobals } from "./schemas/objects/sectionGlobals"
 import { showAvailability } from "./schemas/objects/showAvailability"
 import { intermission } from "./schemas/sections/intermission"
 import { rarity } from "./schemas/sections/rarity"
+import { rarityTextRow } from "./schemas/objects/rarityTextRow"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -32,6 +34,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     page,
     blog,
     navigation,
+    rarityList,
 
     // Objects
     customImage,
@@ -47,6 +50,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     getRobots,
     intermission,
     rarity,
+    rarityTextRow,
+
 
     // Singletons
     homepage,

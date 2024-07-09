@@ -139,4 +139,17 @@ export const SideBarList = (S: any, context: any) =>
               S.divider(),
             ])
         ),
+
+        S.divider(),
+
+        S.listItem()
+        .title('Rarity List')
+        .icon(IoMenuOutline)
+        .child(
+          S.documentList()
+            .title('All Rarity Groups')
+            .filter('_type == "rarityList"')
+        ),
+
+        S.divider(),
     ])

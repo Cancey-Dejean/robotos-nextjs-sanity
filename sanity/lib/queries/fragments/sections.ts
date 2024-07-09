@@ -1,6 +1,7 @@
 import { groq } from "next-sanity"
 import { HERO_FIELDS } from "./heroFields"
 import { GET_ROBOTS_FIELDS } from "./getRobotFields"
+import { RARITY_LIST_FIELDS } from "./rarityListFields"
 
 export const ALL_SECTIONS_QUERY = groq`
   _type == "hero" => {
@@ -13,5 +14,13 @@ export const ALL_SECTIONS_QUERY = groq`
 
   _type == "intermission" => {
     ...
+  },
+
+  _type == "rarity" => {
+    heading,
+    text,
+    "rarityList": *[_type == "rarityList"] {
+        ${RARITY_LIST_FIELDS}
+    }
   },
 `
