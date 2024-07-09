@@ -21,7 +21,7 @@ export default function PostCard({
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{excerpt}</CardDescription>
+        <CardDescription className="line-clamp-2">{excerpt}</CardDescription>
       </CardHeader>
       <CardContent>
         {featuredImage && (

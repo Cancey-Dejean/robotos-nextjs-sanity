@@ -1,26 +1,19 @@
 import { groq } from "next-sanity"
+import { AUTHOR_FIELDS } from "./authorFields"
 
 export const POST_FIELDS = groq`
-  _id,
   "seoImage": ogImage.asset->url,
   "seoImageAlt": ogImage.alt,
-  "currentSlug": slug.current,
+  body,
+  title,
   excerpt,
+  _createdAt,
+  _updatedAt,
+  "categories": categories[]->,
   "featuredImg": featuredImage.asset->url,
   "featuredImgAlt": featuredImage.alt,
   "currentSlug": slug.current,
-
-  "author": author-> {
-    _id,
-    "authorImage": image.asset->url,
-    "authorImageAlt": image.alt,
-    "authorSlug": slug.current,
-    bio,
-  },
-  "categories": categories[]-> {
-    ...,
-    "categoryImage": image.asset->url,
-    "categoryImageAlt": image.alt,
-    "currentSlug": slug.current
+  author-> {
+    ${AUTHOR_FIELDS}
   }
 `

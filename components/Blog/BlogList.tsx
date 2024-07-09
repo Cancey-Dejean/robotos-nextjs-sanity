@@ -3,6 +3,7 @@ import { PostProps } from "@/types/Post"
 import React, { useState } from "react"
 import PostCard from "./PostCard"
 import { Button } from "../ui/button"
+import CardBlog from "../Cards/CardBlog"
 
 export default function BlogList({ posts }: { posts: PostProps[] }) {
   const articlesShown = 3
@@ -16,7 +17,7 @@ export default function BlogList({ posts }: { posts: PostProps[] }) {
         {posts.slice(0, loadMore).map((post) => {
           return (
             <li key={post._id}>
-              <PostCard {...post} />
+              <CardBlog {...post} />
             </li>
           )
         })}

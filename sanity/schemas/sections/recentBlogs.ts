@@ -11,7 +11,6 @@ export const recentBlogs = defineType({
       type: "sectionGlobals",
       title: "Globals",
     }),
-
     defineField({
       name: "heading",
       type: "string",

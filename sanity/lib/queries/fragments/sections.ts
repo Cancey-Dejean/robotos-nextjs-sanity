@@ -23,6 +23,8 @@ export const ALL_SECTIONS_QUERY = groq`
 
   _type == "recentBlogs" => {
     heading,
-    ${POST_FIELDS}
+    "blogs": *[_type == "blog"] | order(_createdAt desc) {
+      ${POST_FIELDS}
+    },
   },
 `

@@ -2,49 +2,68 @@ import React from "react"
 import Card from "../Card"
 import Link from "next/link"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
+import { Author } from "@/types/AuthorProps"
 
 export default function CardBlog({
-  image,
-  imageAlt,
+  className,
+  featuredImg,
+  featuredImgAlt,
   title,
   excerpt,
   buttonText,
-  url,
+  currentSlug,
+  author,
 }: {
-  image?: string
-  imageAlt?: string
+  featuredImg?: string
+  featuredImgAlt?: string
   title: string
   excerpt?: string
   buttonText?: string
-  url: string
+  currentSlug: string
+  className?: string
+  author?: Author
 }) {
   return (
-    <Card className="relative flex flex-col items-start gap-5 p-4 md:p-5">
+    <Card
+      className={cn(
+        "relative flex flex-col items-start gap-5 p-4 md:p-5",
+        className
+      )}
+    >
       <div className="relative size-[200px] w-full overflow-hidden rounded-[20px]">
         <Image
-          src={image || "https://dummyimage.com/200x200.png/eb0d18/ffffff"}
-          alt={imageAlt || "Card"}
+          src={
+            featuredImg || "https://dummyimage.com/200x200.png/eb0d18/ffffff"
+          }
+          alt={featuredImgAlt || "Card"}
           className="object-cover"
           fill
         />
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-2xl">{title}</h3>
-        <div className="line-clamp-3">{excerpt}</div>
+        <h3 className="text-xl">{title}</h3>
+        <div className="line-clamp-2">{excerpt}</div>
       </div>
 
       <div className="mt-auto flex items-center gap-2 justify-between w-full">
-        <Link href={url} className="after:absolute after:inset-0">
+        <Link
+          href={`/blog/${currentSlug}`}
+          className="after:absolute after:inset-0"
+        >
           {buttonText || "Read More"} →
         </Link>
 
         <Image
-          src="https://dummyimage.com/50x50.png/eb0d18/ffffff"
+          src={
+            author?.authorImage ||
+            "https://dummyimage.com/200x200.png/eb0d18/ffffff"
+          }
           width={50}
           height={50}
-          alt=""
-          className="object-cover rounded-full"
+          alt={author?.authorImageAlt || "Author"}
+          className="object-cover rounded-full border border-black scale-[1.1]"
         />
       </div>
     </Card>

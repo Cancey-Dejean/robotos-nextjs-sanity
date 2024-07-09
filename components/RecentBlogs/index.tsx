@@ -5,9 +5,14 @@ import Container from "../Container"
 import SectionTitle from "../SectionTitle"
 import { containerStaggerVariants, itemVariants } from "@/lib/animations"
 import { motion, useInView } from "framer-motion"
-import { blogs } from "@/constants"
 
-export default function RecentBlogs({ heading }: { heading: string }) {
+export default function RecentBlogs({
+  heading,
+  blogs,
+}: {
+  heading: string
+  blogs: any[]
+}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -23,18 +28,35 @@ export default function RecentBlogs({ heading }: { heading: string }) {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerStaggerVariants}
-          className="flex flex-col gap-6 md:flex-row"
+          className="grid grid-cols-1 gap-6 md:grid-cols-3"
         >
-          {blogs.slice(0, 3).map(({ image, title, excerpt, slug }, index) => (
-            <motion.div key={index} variants={itemVariants} className="grow">
-              <CardBlog
-                url={`/blog/${slug}`}
-                image={image}
-                title={title}
-                excerpt={excerpt}
-              />
-            </motion.div>
-          ))}
+          {blogs
+            .slice(0, 3)
+            .map(
+              (
+                {
+                  featuredImg,
+                  featuredImgAlt,
+                  title,
+                  excerpt,
+                  currentSlug,
+                  author,
+                },
+                index
+              ) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <CardBlog
+                    currentSlug={`/blog/${currentSlug}`}
+                    featuredImgAlt={featuredImgAlt}
+                    featuredImg={featuredImg}
+                    title={title}
+                    author={author}
+                    excerpt={excerpt}
+                    className="h-full"
+                  />
+                </motion.div>
+              )
+            )}
         </motion.div>
       </Container>
     </section>
