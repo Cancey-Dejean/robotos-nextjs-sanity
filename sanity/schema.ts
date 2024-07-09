@@ -52,7 +52,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     rarity,
     rarityTextRow,
 
-
     // Singletons
     homepage,
     category,

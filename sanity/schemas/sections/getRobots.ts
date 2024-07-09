@@ -12,6 +12,11 @@ export const getRobots = defineType({
       title: "Globals",
     }),
     defineField({
+      name: "bgImage",
+      type: "image",
+      title: "Background Image",
+    }),
+    defineField({
       name: "image",
       type: "customImage",
       title: "Top Image",

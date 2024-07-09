@@ -31,7 +31,7 @@ export default function Hero({
   heading?: string
   buttonUrl?: string
   buttonLabel?: string
-  buttonVariant?: ButtonProps["variant"],
+  buttonVariant?: ButtonProps["variant"]
   availability?: boolean
 } & NavItem) {
   const { scrollY } = useScroll()
@@ -88,12 +88,11 @@ export default function Hero({
         </Button>
 
         {/* Availability */}
-        {availability &&
+        {availability && (
           <div className="hidden sm:block">
             <Availability />
           </div>
-        }
-
+        )}
       </motion.div>
 
       {/* Images */}
@@ -252,7 +251,6 @@ export default function Hero({
           </div>
         </motion.div>
       </motion.div>
-
     </motion.section>
   )
 }

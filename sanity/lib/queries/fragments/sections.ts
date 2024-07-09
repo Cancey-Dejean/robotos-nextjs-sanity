@@ -17,10 +17,6 @@ export const ALL_SECTIONS_QUERY = groq`
   },
 
   _type == "rarity" => {
-    heading,
-    text,
-    "rarityList": *[_type == "rarityList"] {
-        ${RARITY_LIST_FIELDS}
-    }
+    ${RARITY_LIST_FIELDS}
   },
 `

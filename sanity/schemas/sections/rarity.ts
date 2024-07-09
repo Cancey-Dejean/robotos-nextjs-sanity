@@ -12,6 +12,11 @@ export const rarity = defineType({
       title: "Globals",
     }),
     defineField({
+      name: "bgImage",
+      type: "image",
+      title: "Background Image",
+    }),
+    defineField({
       name: "heading",
       type: "string",
       title: "Heading",
