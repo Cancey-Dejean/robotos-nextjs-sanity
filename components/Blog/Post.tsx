@@ -21,7 +21,7 @@ export default function Post({ post }: { post: SanityDocument }) {
     _createdAt,
     _updatedAt,
     categories,
-    author: { name },
+    author: { name, bio, authorImage, authorSlug },
   } = post
 
   return (
@@ -33,10 +33,41 @@ export default function Post({ post }: { post: SanityDocument }) {
     >
       <Container>
         <Card>
-          <article className="prose max-w-3xl mx-auto py-20">
-            {title ? <h1>{title}</h1> : null}
-            <div>By: {name ? <p>{name}</p> : null}</div>
+          <article className="prose max-w-3xl mx-auto py-10 md:py-20">
+            {title ? (
+              <h1 className="text-xl sm:text-4xl mb-0">{title}</h1>
+            ) : null}
             {excerpt ? <p>{excerpt}</p> : null}
+
+            <div className="flex flex-col md:flex-row justify-between gap-2">
+              <div className="flex items-center gap-2 relative">
+                <Link
+                  href={`/blog/author/${authorSlug}`}
+                  className=" after:absolute after:inset-0"
+                >
+                  <Image
+                    src={authorImage}
+                    alt={name}
+                    height={50}
+                    width={50}
+                    className="m-0 rounded-full border border-black"
+                  />
+                </Link>
+
+                <div>
+                  <p className="m-0">{name ? <strong>{name}</strong> : null}</p>
+                  {/* <p className="m-0 text-sm">Title</p> */}
+                </div>
+              </div>
+
+              <div className="flex items-start flex-col">
+                {/* Created */}
+                <div>{format(_createdAt, dateFormat)}</div>
+                {/* Updated */}
+                <div className="sr-only">{format(_updatedAt, dateFormat)}</div>
+              </div>
+            </div>
+
             {featuredImg && (
               <DynamicImage
                 url={
@@ -47,29 +78,21 @@ export default function Post({ post }: { post: SanityDocument }) {
               />
             )}
 
-            {categories.map((category) => (
-              <Link
-                href={`/blog/category/${category.slug.current}`}
-                key={category._id}
-              >
-                {category.title}
-              </Link>
-            ))}
-
-            <div className="flex items-center gap-3 justify-between">
-              {/* Created */}
-              <div>
-                <strong></strong> {format(_createdAt, dateFormat)}
-              </div>
-              {/* Updated */}
-              <div className="sr-only">
-                <strong></strong> {format(_updatedAt, dateFormat)}
-              </div>
-            </div>
-
             {body ? (
               <PortableText value={body} components={blockImageRenderer} />
             ) : null}
+
+            <div className="flex gap-2">
+              <strong>Categories:</strong>
+              {categories.map((category) => (
+                <Link
+                  href={`/blog/category/${category.slug.current}`}
+                  key={category._id}
+                >
+                  {category.title}
+                </Link>
+              ))}
+            </div>
           </article>
         </Card>
       </Container>

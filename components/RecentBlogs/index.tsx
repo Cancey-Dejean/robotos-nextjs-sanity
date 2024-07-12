@@ -46,7 +46,7 @@ export default function RecentBlogs({
               ) => (
                 <motion.div key={index} variants={itemVariants}>
                   <CardBlog
-                    currentSlug={`/blog/${currentSlug}`}
+                    currentSlug={currentSlug}
                     featuredImgAlt={featuredImgAlt}
                     featuredImg={featuredImg}
                     title={title}
