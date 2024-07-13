@@ -12,7 +12,7 @@ const Header = async () => {
   const logo = navigation.header.logoImage
   const logoAlt = navigation.header.logoImageAlt
   const settings = navigation.settings[0].companyName
-  // console.log(menuList)
+
   return (
     <>
       <HeaderContent

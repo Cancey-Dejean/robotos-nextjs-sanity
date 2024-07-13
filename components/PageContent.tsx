@@ -1,3 +1,4 @@
+import Faq from "./Faq"
 import GetRobots from "./GetRobots"
 import Hero from "./Hero"
 import Intermission from "./Intermission"
@@ -27,6 +28,15 @@ export const PageContent = (section: any) => {
 
     case "recentBlogs":
       return <RecentBlogs key={section._type} {...section} />
+
+    case "faqSection":
+      return (
+        <Faq
+          key={section._type}
+          items={section.questions[0].items}
+          {...section}
+        />
+      )
 
     default:
       return (

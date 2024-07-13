@@ -9,5 +9,6 @@ export const pageSections = defineType({
     { type: "intermission" },
     { type: "rarity" },
     { type: "recentBlogs" },
+    { type: "faqSection" },
   ],
 })

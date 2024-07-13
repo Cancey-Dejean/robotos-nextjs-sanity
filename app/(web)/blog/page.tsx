@@ -9,8 +9,6 @@ export default async function Page() {
     query: POSTS_QUERY,
   })
 
-  console.log(posts.length)
-
   if (posts.length < 1) return <div>No posts</div>
 
   return <Posts posts={posts} />

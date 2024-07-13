@@ -3,6 +3,7 @@ import { HERO_FIELDS } from "./heroFields"
 import { GET_ROBOTS_FIELDS } from "./getRobotFields"
 import { RARITY_LIST_FIELDS } from "./rarityListFields"
 import { POST_FIELDS } from "./postFields"
+import { FAQ_FIELDS } from "./faqFields"
 
 export const ALL_SECTIONS_QUERY = groq`
   _type == "hero" => {
@@ -26,5 +27,9 @@ export const ALL_SECTIONS_QUERY = groq`
     "blogs": *[_type == "blog"] | order(_createdAt desc) {
       ${POST_FIELDS}
     },
+  },
+
+  _type == "faqSection" => {
+    ${FAQ_FIELDS}
   },
 `

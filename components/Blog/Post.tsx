@@ -39,7 +39,7 @@ export default function Post({ post }: { post: SanityDocument }) {
             ) : null}
             {excerpt ? <p>{excerpt}</p> : null}
 
-            <div className="flex flex-col md:flex-row justify-between gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-2">
               <div className="flex items-center gap-2 relative">
                 <Link
                   href={`/blog/author/${authorSlug}`}
@@ -54,13 +54,10 @@ export default function Post({ post }: { post: SanityDocument }) {
                   />
                 </Link>
 
-                <div>
-                  <p className="m-0">{name ? <strong>{name}</strong> : null}</p>
-                  {/* <p className="m-0 text-sm">Title</p> */}
-                </div>
+                <p className="m-0">{name ? <strong>{name}</strong> : null}</p>
               </div>
 
-              <div className="flex items-start flex-col">
+              <div className="flex flex-col">
                 {/* Created */}
                 <div>{format(_createdAt, dateFormat)}</div>
                 {/* Updated */}

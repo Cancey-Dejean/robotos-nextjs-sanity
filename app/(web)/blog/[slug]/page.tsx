@@ -17,8 +17,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const post = await sanityFetch<SanityDocument>({ query: POST_QUERY, params })
 
-  console.log(post)
-
   if (!post) return notFound()
 
   return {
@@ -48,7 +46,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: QueryParams }) {
   const post = await sanityFetch<SanityDocument>({ query: POST_QUERY, params })
-  console.log(post)
+
   if (!post) {
     return notFound()
   }

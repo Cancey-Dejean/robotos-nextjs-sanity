@@ -2,8 +2,8 @@ import { IoHomeOutline } from "react-icons/io5"
 import { defineField, defineType } from "sanity"
 
 export default defineType({
-  name: "rarityList",
-  title: "Rarity List",
+  name: "faqList",
+  title: "FAQ List",
   type: "document",
   icon: IoHomeOutline,
   fields: [
@@ -17,13 +17,8 @@ export default defineType({
       name: "items",
       title: "Items",
       type: "array",
-      of: [{ type: "rarityTextRow" }],
+      of: [{ type: "faqItem" }],
       validation: (rule) => rule.required().min(1),
-    }),
-    defineField({
-      name: "image",
-      type: "customImage",
-      title: "Image",
     }),
   ],
   initialValue: {

@@ -1,9 +1,10 @@
 import React from "react"
 import Card from "../Card"
-import Link from "next/link"
+
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Author } from "@/types/AuthorProps"
+import { Link } from "next-view-transitions"
 
 export default function CardBlog({
   className,
@@ -31,13 +32,13 @@ export default function CardBlog({
         className
       )}
     >
-      <div className="relative size-[200px] w-full overflow-hidden rounded-[20px]">
+      <div className="relative h-[300px] lg:h-[200px] w-full overflow-hidden rounded-[20px]">
         <Image
           src={
             featuredImg || "https://dummyimage.com/200x200.png/eb0d18/ffffff"
           }
           alt={featuredImgAlt || "Card"}
-          className="object-cover"
+          className="object-cover object-center"
           fill
         />
       </div>

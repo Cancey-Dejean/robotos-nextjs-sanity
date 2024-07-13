@@ -140,16 +140,25 @@ export const SideBarList = (S: any, context: any) =>
             ])
         ),
 
-        S.divider(),
+      S.divider(),
 
-        S.listItem()
-        .title('Rarity List')
+      S.listItem()
+        .title("Rarity Lists")
         .icon(IoMenuOutline)
         .child(
           S.documentList()
-            .title('All Rarity Groups')
+            .title("All Rarity Groups")
             .filter('_type == "rarityList"')
         ),
 
-        S.divider(),
+      S.divider(),
+
+      S.listItem()
+        .title("Faqs")
+        .icon(IoMenuOutline)
+        .child(
+          S.documentList().title("All FAQ Groups").filter('_type == "faqList"')
+        ),
+
+      S.divider(),
     ])

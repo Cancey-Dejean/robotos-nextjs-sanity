@@ -28,6 +28,9 @@ import { intermission } from "./schemas/sections/intermission"
 import { rarity } from "./schemas/sections/rarity"
 import { rarityTextRow } from "./schemas/objects/rarityTextRow"
 import { recentBlogs } from "./schemas/sections/recentBlogs"
+import { faqSection } from "./schemas/sections/faqSection"
+import faqList from "./schemas/documents/faqList"
+import { faqItem } from "./schemas/objects/faqItem"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -36,6 +39,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blog,
     navigation,
     rarityList,
+    faqList,
 
     // Objects
     customImage,
@@ -53,6 +57,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     rarity,
     rarityTextRow,
     recentBlogs,
+    faqSection,
+    faqItem,
 
     // Singletons
     homepage,
