@@ -46,7 +46,7 @@ export const button = defineType({
   },
   initialValue: {
     label: "MINT ROBOTOS",
-    variant: "variant.default",
+    variant: "default",
     newTab: false,
   },
   preview: {

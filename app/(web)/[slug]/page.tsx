@@ -1,62 +1,55 @@
-// // ./app/(blog)/[slug]/page.tsx
+import { QueryParams, SanityDocument } from "next-sanity"
+import { notFound } from "next/navigation"
+import { sanityFetch } from "@/sanity/lib/fetch"
+import { Metadata } from "next"
+import { PageContent } from "@/components/PageContent"
+import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries/pages/page"
+import AddContent from "@/components/AddContent"
 
-// import { QueryParams, SanityDocument } from "next-sanity"
-// import { notFound } from "next/navigation"
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params })
 
-// // import Post from "@/components/Post"
+  if (!page) return notFound()
 
-// import { sanityFetch } from "@/sanity/lib/fetch"
-// import { Metadata } from "next"
-// import { PAGES_QUERY, PAGE_QUERY } from "@/sanity/lib/fragments/pages/page"
-// import { PageContent } from "@/components/PageContent"
+  return {
+    title: page.metaTitle ?? `This is the ${page.metaTitle} Page`,
+    description:
+      page.metaDescription ?? `This is the ${page.metaTitle} description`,
+    openGraph: {
+      title: page.metaTitle ?? `This is the ${page.metaTitle} OG Title`,
+      images: [{ url: page.ogImage ?? "" }],
+    },
+  }
+}
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string }
-// }): Promise<Metadata> {
-//   const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params })
+export async function generateStaticParams() {
+  const pages = await sanityFetch<SanityDocument[]>({
+    query: PAGES_QUERY,
+    perspective: "published",
+    stega: false,
+  })
 
-//   if (!page) return notFound()
+  return pages.map((page) => ({
+    slug: page.currentSlug,
+  }))
+}
 
-//   return {
-//     title: page.metaTitle ?? `This is the ${page.metaTitle} Page`,
-//     description:
-//       page.metaDescription ?? `This is the ${page.metaTitle} description`,
-//     openGraph: {
-//       title: page.metaTitle ?? `This is the ${page.metaTitle} OG Title`,
-//       images: [{ url: page.ogImage ?? "" }],
-//     },
-//   }
-// }
+export default async function Page({ params }: { params: QueryParams }) {
+  const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params })
+  const pageBuilder = page.pageBuilder
 
-// export async function generateStaticParams() {
-//   const pages = await sanityFetch<SanityDocument[]>({
-//     query: PAGES_QUERY,
-//     perspective: "published",
-//     stega: false,
-//   })
+  console.log(pageBuilder)
+  if (!page) {
+    return notFound()
+  }
 
-//   return pages.map((page) => ({
-//     slug: page.currentSlug,
-//   }))
-// }
+  if (pageBuilder === null) {
+    return <AddContent />
+  }
 
-// export default async function Page({ params }: { params: QueryParams }) {
-//   const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params })
-//   const pageBuilder = page.pageBuilder
-
-//   if (!page) {
-//     return notFound()
-//   }
-
-//   if (pageBuilder === null) {
-//     return (
-//       <div>
-//         <h1 className="font-bold text-3xl">Add sections in CMS.</h1>
-//       </div>
-//     )
-//   }
-
-//   return <>{pageBuilder.sections.map(PageContent)}</>
-// }
+  return <>{pageBuilder.map(PageContent)}</>
+}
