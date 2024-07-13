@@ -27,7 +27,7 @@ export default async function Home() {
   const page = await sanityFetch<SanityDocument>({ query: HOME_QUERY })
   const pageBuilder = page[0].pageBuilder
 
-  console.log(pageBuilder[5].questions[0])
+  console.log(pageBuilder[1])
 
   if (pageBuilder === null) {
     return (

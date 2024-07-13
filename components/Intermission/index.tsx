@@ -3,7 +3,7 @@ import { rowImages } from "@/constants"
 
 export default function Intermission() {
   return (
-    <section className="bg-gray-900">
+    <section className="bg-gray-900 p-0">
       <div className="flex flex-col md:-space-y-[160px]">
         {rowImages.map(({ src, alt }, index) => (
           <div

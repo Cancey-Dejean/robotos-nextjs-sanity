@@ -1,3 +1,4 @@
+import { FaRegImage } from "react-icons/fa6"
 import { defineField, defineType } from "sanity"
 
 export default defineType({
@@ -6,23 +7,42 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
+      name: "titleLineOne",
+      title: "Title Line One",
       type: "string",
-      readOnly: true,
+    }),
+    defineField({
+      name: "titleLineTwo",
+      title: "Title Line Two",
+      type: "string",
+    }),
+    defineField({
+      name: "button",
+      title: "Button",
+      type: "button",
+    }),
+    defineField({
+      name: "text",
+      title: "Text",
+      type: "array",
+      of: [{ type: "block", title: "Block" }],
     }),
   ],
-  preview: {
-    select: {
-      title: "title",
-    },
-    prepare({ title }) {
-      return {
-        title,
-      }
-    },
-  },
   initialValue: {
     title: "Footer",
+  },
+  preview: {
+    select: {
+      title: "titleLineOne + titleLineTwo || titleLineOne",
+      media: "globals.previewImage",
+    },
+    prepare(selection) {
+      const { title, media } = selection
+      return {
+        title: title || "Robotos",
+        subtitle: "Footer",
+        media: media || FaRegImage,
+      }
+    },
   },
 })

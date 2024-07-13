@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "next-sanity"
+
 export type PostProps = {
   _id?: string
   title: string
@@ -6,5 +8,5 @@ export type PostProps = {
   currentSlug: string
   featuredImage?: string
   featuredImageAlt: string
-  body: any
+  body: PortableTextBlock
 }

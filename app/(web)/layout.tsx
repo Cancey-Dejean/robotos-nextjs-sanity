@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { Space_Mono } from "next/font/google"
-
-import { Toaster } from "@/components/ui/toaster"
 import { VisualEditing } from "next-sanity"
 import { draftMode } from "next/headers"
 import { ViewTransitions } from "next-view-transitions"
@@ -36,7 +34,6 @@ export default function RootLayout({
             </div>
           )}
           <PageWrapper>{children}</PageWrapper>
-          <Toaster />
 
           {draftMode().isEnabled && <VisualEditing />}
         </body>

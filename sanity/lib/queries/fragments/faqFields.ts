@@ -2,7 +2,7 @@ import { groq } from "next-sanity"
 
 export const FAQ_FIELDS = groq`
   heading,
-  "questions": *[_type == "faqList" && title == "Home FAQ"] {
+  "questions": *[_type == "faqList" && title == "Home"] {
     ...,
     items [] {
       "iconImage": icon.asset->url,

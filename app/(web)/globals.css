@@ -109,6 +109,10 @@
   a {
     @apply inline-block transition-all duration-300 ease-in-out;
   }
+
+  section {
+    @apply px-5 sm:px-10;
+  }
 }
 
 @layer components {

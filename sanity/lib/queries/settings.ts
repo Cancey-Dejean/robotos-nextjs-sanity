@@ -27,8 +27,15 @@ const HEADER_QUERY = groq`
 // Get Footer Settings
 const FOOTER_QUERY = groq`
   "footer": *[_type == "footer"][0] {
-    text,
-    _updatedAt,
+    titleLineOne,
+    titleLineTwo,
+    button {
+      variant,
+      label,
+      newTab,
+      url
+    },
+    text
   }
 `
 

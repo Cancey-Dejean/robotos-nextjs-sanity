@@ -3,7 +3,7 @@ import { PortableText, PortableTextBlock } from "next-sanity"
 import Availability from "../Availability"
 import Container from "../Container"
 import SectionTitle from "../SectionTitle"
-import { Button } from "../ui/button"
+import { Button, ButtonProps } from "../ui/button"
 import Link from "next/link"
 import Card from "../Cards/Card"
 
@@ -13,6 +13,9 @@ export default function GetRobots({
   text,
   topImage,
   topImageAlt,
+  buttonUrl,
+  buttonVariant,
+  buttonLabel,
   availability,
 }: {
   text: PortableTextBlock
@@ -21,16 +24,20 @@ export default function GetRobots({
   topImage?: string
   topImageAlt?: string
   availability?: boolean
+  buttonUrl?: string
+  buttonLabel?: string
+  buttonVariant?: ButtonProps["variant"]
 }) {
   return (
     <section
-      className="bg-yellow-200 bg-fixed px-5 pb-20 pt-28 [background-image:url('/images/get-robots-bg.png')] md:py-32"
-      style={{ backgroundImage: `url('${bgImg}')` }}
+      className="bg-yellow-200 bg-fixed pb-20 pt-28 md:py-32"
+      style={{
+        backgroundImage: `url('${bgImg || "https://dummyimage.com/1920x1080.png/dddddd/ffffff"}')`,
+      }}
     >
       <Container className="flex justify-center">
         <Card className="items-center text-center md:px-14">
           {/* Image */}
-
           <div className="relative mx-auto -mt-[80px] mb-4 size-28 overflow-hidden rounded-full border-[5px] border-gray-900 md:size-[190px]">
             <Image
               src={
@@ -44,14 +51,19 @@ export default function GetRobots({
 
           {/* Card */}
           <div className="mb-6 flex flex-col gap-4">
-            <SectionTitle>{heading}</SectionTitle>
-            <div className="mb-4">
-              <PortableText value={text} />
-            </div>
+            {heading && <SectionTitle>{heading}</SectionTitle>}
 
-            <Button asChild>
-              <Link href="#">MINT ROBOTOS</Link>
-            </Button>
+            {text && (
+              <div className="mb-4">
+                <PortableText value={text} />
+              </div>
+            )}
+
+            {buttonLabel && (
+              <Button variant={buttonVariant} asChild>
+                <Link href={buttonUrl || "url-not-set"}>{buttonLabel}</Link>
+              </Button>
+            )}
           </div>
 
           {/* Availability */}

@@ -39,7 +39,6 @@ export const button = defineType({
       name: "newTab",
       type: "boolean",
       title: "Open in new tab?",
-      initialValue: false,
     }),
   ],
   options: {
@@ -47,7 +46,8 @@ export const button = defineType({
   },
   initialValue: {
     label: "MINT ROBOTOS",
-    variant: "default",
+    variant: "variant.default",
+    newTab: false,
   },
   preview: {
     select: {

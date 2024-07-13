@@ -18,7 +18,15 @@ export const PageContent = (section: any) => {
         />
       )
     case "getRobots":
-      return <GetRobots key={section._type} {...section} />
+      return (
+        <GetRobots
+          key={section._type}
+          buttonUrl={section.button.url}
+          buttonLabel={section.button.label}
+          buttonVariant={section.button.variant}
+          {...section}
+        />
+      )
 
     case "intermission":
       return <Intermission key={section._type} {...section} />

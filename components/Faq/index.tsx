@@ -36,13 +36,15 @@ export default function Faq({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerStaggerVariants}
-      className="relative bg-blue-50 px-5 pb-16 pt-32 md:py-52"
+      className="relative bg-blue-50 pb-16 pt-32 md:py-52"
       id="faq"
     >
       <Container>
-        <SectionTitle as="h2" className="mb-5">
-          {heading || "Frequently Asked Questions"}
-        </SectionTitle>
+        {heading && (
+          <SectionTitle as="h2" className="mb-14">
+            {heading || "Frequently Asked Questions"}
+          </SectionTitle>
+        )}
 
         {items.length > 0 && (
           <div className="flex flex-col gap-12 md:gap-24">
@@ -69,10 +71,12 @@ export default function Faq({
 
                   <h3 className="mb-3 text-2xl">{question}</h3>
                   {/* <div>{answer}</div> */}
-                  <PortableText
-                    value={answer}
-                    components={blockImageRenderer}
-                  />
+                  <div className="prose max-w-full">
+                    <PortableText
+                      value={answer}
+                      components={blockImageRenderer}
+                    />
+                  </div>
                 </motion.div>
               )
             )}

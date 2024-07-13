@@ -82,10 +82,11 @@ export default function Hero({
         </h1>
 
         {/* Button */}
-
-        <Button variant={buttonVariant} asChild>
-          <Link href={buttonUrl || "url-not-set"}>{buttonLabel}</Link>
-        </Button>
+        {buttonLabel && (
+          <Button variant={buttonVariant} asChild>
+            <Link href={buttonUrl || "url-not-set"}>{buttonLabel}</Link>
+          </Button>
+        )}
 
         {/* Availability */}
         {availability && (
