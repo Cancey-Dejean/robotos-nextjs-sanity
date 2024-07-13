@@ -52,14 +52,12 @@ export default function CardBlog({
       </div>
 
       <div className="mt-auto flex items-center gap-2 justify-between w-full">
-        {buttonText && (
-          <Link
-            href={`/blog/${currentSlug}`}
-            className="after:absolute after:inset-0"
-          >
-            {buttonText || "Read More"} →
-          </Link>
-        )}
+        <Link
+          href={`/blog/${currentSlug}`}
+          className="after:absolute after:inset-0"
+        >
+          {buttonText || "Read More"} →
+        </Link>
 
         {author?.authorImage && (
           <Image

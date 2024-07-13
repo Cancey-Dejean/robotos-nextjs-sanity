@@ -90,7 +90,6 @@ const ColumnImage = ({
               {boldText && <p className="font-bold">{boldText}</p>}
 
               {title && <p>{title}</p>}
-              <p>{title}</p>
             </div>
           ))}
 
