@@ -27,6 +27,11 @@ export default defineType({
       type: "array",
       of: [{ type: "block", title: "Block" }],
     }),
+    defineField({
+      name: "newsletter",
+      type: "newsletter",
+      title: "Newsletter",
+    }),
   ],
   initialValue: {
     title: "Footer",

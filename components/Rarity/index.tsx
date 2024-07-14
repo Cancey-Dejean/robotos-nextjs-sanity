@@ -1,21 +1,21 @@
-import Image from "next/image"
-import Container from "../Container"
-import SectionTitle from "../SectionTitle"
-import Card from "../Cards/Card"
-import { columns } from "@/constants"
-import { PortableText, PortableTextBlock } from "next-sanity"
+import Image from "next/image";
+import Container from "../Container";
+import SectionTitle from "../SectionTitle";
+import Card from "../Cards/Card";
+import { columns } from "@/constants";
+import { PortableText, PortableTextBlock } from "next-sanity";
 
 type ColumnItem = {
-  boldText: string
-  title?: string
-}
+  boldText: string;
+  title?: string;
+};
 
 export type ColumnImageProps = {
-  title?: string
-  mainImage?: string | null
-  mainImageAlt?: string
-  items?: ColumnItem[]
-}
+  title?: string;
+  mainImage?: string | null;
+  mainImageAlt?: string;
+  items?: ColumnItem[];
+};
 
 export default function Rarity({
   heading,
@@ -23,10 +23,10 @@ export default function Rarity({
   text,
   rarityList,
 }: {
-  heading: string
-  bgImg?: string
-  text: PortableTextBlock
-  rarityList: ColumnImageProps[]
+  heading: string;
+  bgImg?: string;
+  text: PortableTextBlock;
+  rarityList: ColumnImageProps[];
 }) {
   return (
     <section
@@ -60,14 +60,14 @@ export default function Rarity({
                     mainImage={mainImage}
                     mainImageAlt={mainImageAlt}
                   />
-                )
+                ),
               )}
             </div>
           )}
         </Card>
       </Container>
     </section>
-  )
+  );
 }
 
 const ColumnImage = ({
@@ -107,5 +107,5 @@ const ColumnImage = ({
         </div>
       )}
     </div>
-  )
-}
+  );
+};

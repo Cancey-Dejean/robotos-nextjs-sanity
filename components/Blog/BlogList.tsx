@@ -1,33 +1,33 @@
-"use client"
-import { PostProps } from "@/types/Post"
-import React, { useState } from "react"
-import PostCard from "./PostCard"
-import { Button } from "../ui/button"
-import CardBlog from "../Cards/CardBlog"
+"use client";
+import { PostProps } from "@/types/Post";
+import React, { useState } from "react";
+import PostCard from "./PostCard";
+import { Button } from "../ui/button";
+import CardBlog from "../Cards/CardBlog";
 
 export default function BlogList({ posts }: { posts: PostProps[] }) {
-  const articlesShown = 3
-  const [loadMore, setLoadMore] = useState(articlesShown)
+  const articlesShown = 3;
+  const [loadMore, setLoadMore] = useState(articlesShown);
   const showMoreArticles = () => {
-    setLoadMore(loadMore + articlesShown)
-  }
+    setLoadMore(loadMore + articlesShown);
+  };
   return (
     <div className="">
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {posts.slice(0, loadMore).map((post) => {
           return (
             <li key={post._id}>
               <CardBlog {...post} />
             </li>
-          )
+          );
         })}
       </ul>
-      <div className=" text-center mt-8">
+      <div className="mt-8 text-center">
         {loadMore < posts?.length ? (
           <Button onClick={showMoreArticles}>Load More Articles</Button>
         ) : (
           <Button
-            className="flex justify-center mt-8"
+            className="mt-8 flex justify-center"
             onClick={showMoreArticles}
             disabled
           >
@@ -37,10 +37,10 @@ export default function BlogList({ posts }: { posts: PostProps[] }) {
       </div>
 
       {loadMore < posts?.length && (
-        <p className="flex justify-center mt-8">
+        <p className="mt-8 flex justify-center">
           Showing {loadMore} of {posts?.length} articles
         </p>
       )}
     </div>
-  )
+  );
 }

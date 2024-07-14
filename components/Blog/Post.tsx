@@ -1,15 +1,15 @@
 // ./components/Post.tsx
 
-import Image from "next/image"
-import { PortableText } from "next-sanity"
-import { SanityDocument } from "next-sanity"
-import { format } from "date-fns"
-import { blockImageRenderer } from "@/utils"
-import DynamicImage from "../DynamicImage"
-import { dateFormat } from "@/constants"
-import Link from "next/link"
-import Container from "../Container"
-import Card from "../Cards/Card"
+import Image from "next/image";
+import { PortableText } from "next-sanity";
+import { SanityDocument } from "next-sanity";
+import { format } from "date-fns";
+import { blockImageRenderer } from "@/utils";
+import DynamicImage from "../DynamicImage";
+import { dateFormat } from "@/constants";
+import Link from "next/link";
+import Container from "../Container";
+import Card from "../Cards/Card";
 
 export default function Post({ post }: { post: SanityDocument }) {
   const {
@@ -22,7 +22,7 @@ export default function Post({ post }: { post: SanityDocument }) {
     _updatedAt,
     categories,
     author: { name, bio, authorImage, authorSlug },
-  } = post
+  } = post;
 
   return (
     <section
@@ -33,17 +33,17 @@ export default function Post({ post }: { post: SanityDocument }) {
     >
       <Container>
         <Card>
-          <article className="prose max-w-3xl mx-auto py-10 md:py-20">
+          <article className="prose mx-auto max-w-3xl py-10 md:py-20">
             {title ? (
-              <h1 className="text-xl sm:text-4xl mb-0">{title}</h1>
+              <h1 className="mb-0 text-xl sm:text-4xl">{title}</h1>
             ) : null}
             {excerpt ? <p>{excerpt}</p> : null}
 
-            <div className="flex flex-col md:flex-row items-center justify-between gap-2">
-              <div className="flex items-center gap-2 relative">
+            <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
+              <div className="relative flex items-center gap-2">
                 <Link
                   href={`/blog/author/${authorSlug}`}
-                  className=" after:absolute after:inset-0"
+                  className="after:absolute after:inset-0"
                 >
                   <Image
                     src={authorImage}
@@ -94,5 +94,5 @@ export default function Post({ post }: { post: SanityDocument }) {
         </Card>
       </Container>
     </section>
-  )
+  );
 }

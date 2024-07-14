@@ -4,6 +4,7 @@ import { GET_ROBOTS_FIELDS } from "./getRobotFields"
 import { RARITY_LIST_FIELDS } from "./rarityListFields"
 import { POST_FIELDS } from "./postFields"
 import { FAQ_FIELDS } from "./faqFields"
+import { ROBOT_GRID_FIELDS } from "./robotGridFields"
 
 export const ALL_SECTIONS_QUERY = groq`
   _type == "hero" => {
@@ -31,5 +32,9 @@ export const ALL_SECTIONS_QUERY = groq`
 
   _type == "faqSection" => {
     ${FAQ_FIELDS}
+  },
+
+  _type == "robotGrid" => {
+    ${ROBOT_GRID_FIELDS}
   },
 `

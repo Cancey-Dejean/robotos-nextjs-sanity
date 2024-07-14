@@ -1,14 +1,14 @@
-import { CategoryProps } from "@/types/Category"
-import CategoryCard from "./CategoryCard"
-import { SanityDocument } from "next-sanity"
+import { CategoryProps } from "@/types/Category";
+import CategoryCard from "./CategoryCard";
+import { SanityDocument } from "next-sanity";
 
 export default function Categories({
   categories,
 }: {
-  categories: CategoryProps[]
+  categories: CategoryProps[];
 }) {
   return (
-    <div className="max-w-3xl mx-auto py-20">
+    <div className="mx-auto max-w-3xl py-20">
       <ul className="grid grid-cols-3 gap-8">
         {categories?.length > 0 ? (
           categories.map((category) => (
@@ -17,9 +17,9 @@ export default function Categories({
             </li>
           ))
         ) : (
-          <div className="p-4 text-red-500">No categories found</div>
+          <div className="text-red-500 p-4">No categories found</div>
         )}
       </ul>
     </div>
-  )
+  );
 }

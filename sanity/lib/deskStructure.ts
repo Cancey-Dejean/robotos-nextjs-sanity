@@ -7,39 +7,38 @@ import { FaPenToSquare } from "react-icons/fa6"
 
 export const SideBarList = (S: any, context: any) =>
   S.list()
-    .title("Base")
+    .title("Dashboard")
+
     .items([
       S.divider(),
 
-      // List of Pages
+      S.listItem()
+        .title("Site Settings")
+        .icon(FaGears)
+        .child(
+          S.document().schemaType("siteSettings").documentId("siteSettings")
+        ),
+
+      S.divider(),
+
+      S.listItem()
+        .title("Header")
+        .icon(IoMenuOutline)
+        .child(S.document().schemaType("header").documentId("header")),
+
+      S.divider(),
+
+      S.listItem()
+        .title("Footer")
+        .icon(IoMenuOutline)
+        .child(S.document().schemaType("footer").documentId("footer")),
+
+      S.divider(),
+
       S.listItem()
         .title("Pages")
-        .icon(TfiLayersAlt)
-        .child(
-          S.list()
-            .title("Pages")
-            .items([
-              S.divider(),
-
-              S.listItem()
-                .title("Homepage")
-                .icon(RxHome)
-                .child(
-                  S.document().schemaType("homepage").documentId("homepage")
-                ),
-
-              S.divider(),
-
-              S.listItem()
-                .title("Inner Pages")
-                .icon(FiLayers)
-                .child(
-                  S.documentList().title("All Pages").filter('_type == "page"')
-                ),
-
-              S.divider(),
-            ])
-        ),
+        .icon(IoMenuOutline)
+        .child(S.documentList().title("All Pages").filter('_type == "page"')),
 
       S.divider(),
 
@@ -102,42 +101,6 @@ export const SideBarList = (S: any, context: any) =>
         .icon(IoMenuOutline)
         .child(
           S.documentList().title("All Menus").filter('_type == "navigation"')
-        ),
-
-      S.divider(),
-      // List the site settings
-      S.listItem()
-        .title("Settings")
-        .icon(FaGears)
-        .child(
-          S.list()
-            // Sets a title for our new list
-            .title("Global Settings")
-            // Add items to the array
-            // Each will pull one of our new singletons
-            .items([
-              S.listItem()
-                .title("Site Settings")
-                .child(
-                  S.document()
-                    .schemaType("siteSettings")
-                    .documentId("siteSettings")
-                ),
-
-              S.divider(),
-
-              S.listItem()
-                .title("Header")
-                .child(S.document().schemaType("header").documentId("header")),
-
-              S.divider(),
-
-              S.listItem()
-                .title("Footer")
-                .child(S.document().schemaType("footer").documentId("footer")),
-
-              S.divider(),
-            ])
         ),
 
       S.divider(),

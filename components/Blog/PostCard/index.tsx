@@ -4,11 +4,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { urlForImage } from "@/sanity/lib/image"
-import { PostProps } from "@/types/Post"
-import Image from "next/image"
-import { Link } from "next-view-transitions"
+} from "@/components/ui/card";
+import { urlForImage } from "@/sanity/lib/image";
+import { PostProps } from "@/types/Post";
+import Image from "next/image";
+import { Link } from "next-view-transitions";
 
 export default function PostCard({
   title,
@@ -38,5 +38,5 @@ export default function PostCard({
         <Link href={`/blog/${currentSlug}`}> Read More</Link>
       </CardContent>
     </Card>
-  )
+  );
 }

@@ -27,6 +27,11 @@ const HEADER_QUERY = groq`
 // Get Footer Settings
 const FOOTER_QUERY = groq`
   "footer": *[_type == "footer"][0] {
+    newsletter {
+      heading,
+      buttonText,
+      text
+    },
     titleLineOne,
     titleLineTwo,
     button {

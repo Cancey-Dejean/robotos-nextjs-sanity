@@ -1,20 +1,20 @@
-"use client"
-import { useRef } from "react"
-import CardBlog from "../Cards/CardBlog"
-import Container from "../Container"
-import SectionTitle from "../SectionTitle"
-import { containerStaggerVariants, itemVariants } from "@/lib/animations"
-import { motion, useInView } from "framer-motion"
+"use client";
+import { useRef } from "react";
+import CardBlog from "../Cards/CardBlog";
+import Container from "../Container";
+import SectionTitle from "../SectionTitle";
+import { containerStaggerVariants, itemVariants } from "@/lib/animations";
+import { motion, useInView } from "framer-motion";
 
 export default function RecentBlogs({
   heading,
   blogs,
 }: {
-  heading: string
-  blogs: any[]
+  heading: string;
+  blogs: any[];
 }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <section className="bg-white py-16 md:py-32">
@@ -36,18 +36,15 @@ export default function RecentBlogs({
             {blogs
               .slice(0, 3)
               .map(
-                (
-                  {
-                    featuredImg,
-                    featuredImgAlt,
-                    title,
-                    excerpt,
-                    currentSlug,
-                    author,
-                  },
-                  index
-                ) => (
-                  <motion.div key={index} variants={itemVariants}>
+                ({
+                  featuredImg,
+                  featuredImgAlt,
+                  title,
+                  excerpt,
+                  currentSlug,
+                  author,
+                }) => (
+                  <motion.div key={title} variants={itemVariants}>
                     <CardBlog
                       currentSlug={currentSlug}
                       featuredImgAlt={featuredImgAlt}
@@ -58,11 +55,11 @@ export default function RecentBlogs({
                       className="h-full"
                     />
                   </motion.div>
-                )
+                ),
               )}
           </motion.div>
         )}
       </Container>
     </section>
-  )
+  );
 }

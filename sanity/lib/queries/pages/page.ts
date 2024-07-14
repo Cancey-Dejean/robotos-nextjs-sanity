@@ -5,6 +5,7 @@ import { PAGE_FIELDS } from "../fragments/pageFields"
 // Get all pages
 export const PAGES_QUERY = groq`*[_type == "page"] {
   ${PAGE_FIELDS},
+
 }`
 
 // Get Single Page

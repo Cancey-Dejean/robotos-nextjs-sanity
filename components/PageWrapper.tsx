@@ -1,24 +1,14 @@
-import { cn } from "@/lib/utils"
-import { ReactNode } from "react"
-import Header from "./Header"
-import Footer from "./Footer"
+import Header from "./Header";
+import Footer from "./Footer";
 
-const PageWrapper = ({
-  children,
-  className,
-}: {
-  children: ReactNode
-  className?: string
-}) => {
+const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="grid min-h-[100dvh] grid-rows-[1fr_auto]">
       <Header />
-      <main className={cn("grow", className)} role="main">
-        {children}
-      </main>
+      <main role="main">{children}</main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default PageWrapper
+export default PageWrapper;

@@ -1,40 +1,60 @@
-import { SanityDocument } from "next-sanity"
+import { QueryParams, SanityDocument } from "next-sanity"
 import { notFound } from "next/navigation"
-
 import { sanityFetch } from "@/sanity/lib/fetch"
-import { PageContent } from "@/components/PageContent"
 import { Metadata } from "next"
-import { HOME_QUERY } from "@/sanity/lib/queries/pages/home"
+import { PageContent } from "@/components/PageContent"
+import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries/pages/page"
+import AddContent from "@/components/AddContent"
+import { PageProps } from "@/types/Page"
 
-export async function generateMetadata(): Promise<Metadata> {
-  const homePage = await sanityFetch<SanityDocument>({ query: HOME_QUERY })
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const slug = params.slug || "home"
+  const page = await sanityFetch<SanityDocument>({
+    query: PAGE_QUERY,
+    params: { slug },
+  })
 
-  const seo = homePage[0]
-
-  if (!homePage) return notFound()
+  if (!page) return notFound()
 
   return {
-    title: seo.metaTitle ?? "This is the Home Title",
-    description: seo.metaDescription ?? "This is the Home description",
+    title: page.metaTitle ?? `This is the ${page.metaTitle} Page`,
+    description:
+      page.metaDescription ?? `This is the ${page.metaTitle} description`,
     openGraph: {
-      title: seo.metaTitle ?? "This is the OG Title",
-      images: [{ url: seo.ogImage ?? "" }],
+      title: page.metaTitle ?? `This is the ${page.metaTitle} OG Title`,
+      images: [{ url: page.ogImage ?? "" }],
     },
   }
 }
 
-export default async function Home() {
-  const page = await sanityFetch<SanityDocument>({ query: HOME_QUERY })
-  const pageBuilder = page[0].pageBuilder
+export async function generateStaticParams() {
+  const pages = await sanityFetch<SanityDocument[]>({
+    query: PAGES_QUERY,
+    perspective: "published",
+    stega: false,
+  })
 
-  // console.log(pageBuilder[1])
+  return pages.map((page) => ({
+    slug: page.currentSlug,
+  }))
+}
+
+export default async function Page({ params }: { params: QueryParams }) {
+  const slug = params.slug || "home"
+  const page = await sanityFetch<SanityDocument>({
+    query: PAGE_QUERY,
+    params: { slug },
+  })
+  const pageBuilder = page.pageBuilder
+
+  if (!page) {
+    return notFound()
+  }
 
   if (pageBuilder === null) {
-    return (
-      <div>
-        <h1 className="font-bold text-3xl">Add sections in CMS.</h1>
-      </div>
-    )
+    return <AddContent />
   }
 
   return <>{pageBuilder.map(PageContent)}</>

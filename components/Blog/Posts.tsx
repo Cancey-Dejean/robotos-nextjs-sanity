@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "../ui/button"
-import { PostProps } from "@/types/Post"
-import CardBlog from "../Cards/CardBlog"
-import SectionTitle from "../SectionTitle"
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { PostProps } from "@/types/Post";
+import CardBlog from "../Cards/CardBlog";
+import SectionTitle from "../SectionTitle";
 
 export default function Posts({ posts }: { posts: PostProps[] }) {
-  const articlesShown = 3
-  const [loadMore, setLoadMore] = useState(articlesShown)
+  const articlesShown = 3;
+  const [loadMore, setLoadMore] = useState(articlesShown);
   const showMoreArticles = () => {
-    setLoadMore(loadMore + articlesShown)
-  }
+    setLoadMore(loadMore + articlesShown);
+  };
 
   return (
-    <section className="container mx-auto grid grid-cols-1 justify-self-center py-28 px-5 md:py-32">
-      <SectionTitle className="text-center mb-8">Blogs</SectionTitle>
+    <section className="container mx-auto grid grid-cols-1 justify-self-center px-5 py-28 md:py-32">
+      <SectionTitle className="mb-8 text-center">Blogs</SectionTitle>
 
-      <ul className="grid lg:grid-cols-3 gap-8">
+      <ul className="grid gap-8 lg:grid-cols-3">
         {posts?.length > 0 ? (
           posts.slice(0, loadMore).map((post) => (
             <li key={post.title}>
@@ -25,12 +25,12 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
             </li>
           ))
         ) : (
-          <h2 className="p-4 text-red-500">No posts created</h2>
+          <h2 className="text-red-500 p-4">No posts created</h2>
         )}
       </ul>
 
       {posts?.length > 3 && (
-        <div className="items-center flex flex-col justify-center gap-8 mt-8">
+        <div className="mt-8 flex flex-col items-center justify-center gap-8">
           {loadMore < posts?.length ? (
             <Button onClick={showMoreArticles} variant="purple">
               Load More
@@ -47,5 +47,5 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
         </div>
       )}
     </section>
-  )
+  );
 }

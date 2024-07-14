@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils"
-import { Link } from "next-view-transitions"
-import { Button, ButtonProps } from "../ui/button"
-import { NavItem, NavItemProps } from "@/types/NavItem"
+import { cn } from "@/lib/utils";
+import { Link } from "next-view-transitions";
+import { Button, ButtonProps } from "../ui/button";
+import { NavItem } from "@/types/NavItem";
 
 export default function MobileMenu({
   showMenu,
@@ -9,27 +9,27 @@ export default function MobileMenu({
   menuList,
   navCTA,
 }: {
-  showMenu: boolean
-  toggleMenu: () => void
-  menuList: NavItem[]
-  navCTA: ButtonProps[]
+  showMenu: boolean;
+  toggleMenu: () => void;
+  menuList: NavItem[];
+  navCTA: ButtonProps[];
 }) {
   return (
     <ul
       className={cn(
-        "bg-white flex justify-center flex-col duration-300 absolute px-8 right-0 z-50 h-screen w-screen md:hidden",
-        showMenu ? "top-0" : "-top-[100vh]"
+        "absolute right-0 z-50 flex h-screen w-screen flex-col justify-center bg-white px-8 duration-300 md:hidden",
+        showMenu ? "top-0" : "-top-[100vh]",
       )}
     >
       {menuList &&
         menuList.map((item) => (
           <li
-            key={item._key}
+            key={item.label}
             className={`${showMenu ? "opacity-100" : "opacity-0"}`}
           >
             <Link
               href={item.url || "/"}
-              className="relative p-5 block text-center"
+              className="relative block p-5 text-center"
               onClick={toggleMenu}
             >
               {item.label}
@@ -47,5 +47,5 @@ export default function MobileMenu({
         ))}
       </div>
     </ul>
-  )
+  );
 }

@@ -12,7 +12,7 @@ import { button } from "./schemas/objects/button"
 import { buttonGroup } from "./schemas/objects/buttonGroup"
 import { pageSections } from "./schemas/objects/pageSections"
 import { hideSection } from "./schemas/objects/hideSection"
-import homepage from "./schemas/singletons/homepage"
+
 import siteSettings from "./schemas/singletons/siteSettings"
 import header from "./schemas/singletons/header"
 import navigation from "./schemas/singletons/navigation"
@@ -31,6 +31,9 @@ import { recentBlogs } from "./schemas/sections/recentBlogs"
 import { faqSection } from "./schemas/sections/faqSection"
 import faqList from "./schemas/documents/faqList"
 import { faqItem } from "./schemas/objects/faqItem"
+import { robotGrid } from "./schemas/sections/robotGrid"
+import { robotGridItem } from "./schemas/objects/robotGridItem"
+import { newsletter } from "./schemas/sections/newsletter"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -58,10 +61,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     rarityTextRow,
     recentBlogs,
     faqSection,
+    robotGrid,
     faqItem,
+    robotGridItem,
+    newsletter,
 
     // Singletons
-    homepage,
     category,
     author,
     siteSettings,

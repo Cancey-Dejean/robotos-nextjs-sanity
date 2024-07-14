@@ -1,9 +1,11 @@
-import Faq from "./Faq"
-import GetRobots from "./GetRobots"
-import Hero from "./Hero"
-import Intermission from "./Intermission"
-import Rarity from "./Rarity"
-import RecentBlogs from "./RecentBlogs"
+import Faq from "./Faq";
+import GetRobots from "./GetRobots";
+import Hero from "./Hero";
+import Intermission from "./Intermission";
+import Newsletter from "./Newsletter";
+import Rarity from "./Rarity";
+import RecentBlogs from "./RecentBlogs";
+import RobotGrid from "./RobotGrid";
 
 export const PageContent = (section: any) => {
   switch (section._type) {
@@ -16,7 +18,7 @@ export const PageContent = (section: any) => {
           buttonVariant={section.button.variant}
           {...section}
         />
-      )
+      );
     case "getRobots":
       return (
         <GetRobots
@@ -26,16 +28,16 @@ export const PageContent = (section: any) => {
           buttonVariant={section.button.variant}
           {...section}
         />
-      )
+      );
 
     case "intermission":
-      return <Intermission key={section._type} {...section} />
+      return <Intermission key={section._type} {...section} />;
 
     case "rarity":
-      return <Rarity key={section._type} {...section} />
+      return <Rarity key={section._type} {...section} />;
 
     case "recentBlogs":
-      return <RecentBlogs key={section._type} {...section} />
+      return <RecentBlogs key={section._type} {...section} />;
 
     case "faqSection":
       return (
@@ -44,13 +46,19 @@ export const PageContent = (section: any) => {
           items={section.questions[0].items}
           {...section}
         />
-      )
+      );
+
+    case "robotGrid":
+      return <RobotGrid key={section._type} {...section} />;
+
+    case "newsletter":
+      return <Newsletter key={section._type} {...section} />;
 
     default:
       return (
         <div className="py-10 text-center">
           <h1>Please add Section content to page in Sanity CMS</h1>
         </div>
-      )
+      );
   }
-}
+};

@@ -17,8 +17,11 @@ import { apiVersion, dataset, projectId } from "./sanity/env"
 import { schema } from "./sanity/schema"
 import { locations } from "./sanity/lib/locations"
 import { SideBarList } from "./sanity/lib/deskStructure"
+import Logo from "./components/Logo"
 
 export default defineConfig({
+  name: "Robotos",
+  icon: Logo,
   basePath: "/studio",
   projectId,
   dataset,

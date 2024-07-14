@@ -2,8 +2,9 @@ import { PortableTextBlock } from "next-sanity"
 
 export type PageProps = {
   metaTitle: string
-  metaDescription: PortableTextBlock[]
+  metaDescription: PortableTextBlock
   ogImage?: string
   ogImageAlt?: string
-  body: PortableTextBlock[]
+  body: PortableTextBlock
+  params: { slug: string }
 }

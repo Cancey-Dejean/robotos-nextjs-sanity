@@ -1,11 +1,11 @@
-import Image from "next/image"
-import { PortableText, PortableTextBlock } from "next-sanity"
-import Availability from "../Availability"
-import Container from "../Container"
-import SectionTitle from "../SectionTitle"
-import { Button, ButtonProps } from "../ui/button"
-import Link from "next/link"
-import Card from "../Cards/Card"
+import Image from "next/image";
+import { PortableText, PortableTextBlock } from "next-sanity";
+import Availability from "../Availability";
+import Container from "../Container";
+import SectionTitle from "../SectionTitle";
+import { Button, ButtonProps } from "../ui/button";
+import Link from "next/link";
+import Card from "../Cards/Card";
 
 export default function GetRobots({
   heading,
@@ -18,15 +18,15 @@ export default function GetRobots({
   buttonLabel,
   availability,
 }: {
-  text: PortableTextBlock
-  bgImg?: string
-  heading?: string
-  topImage?: string
-  topImageAlt?: string
-  availability?: boolean
-  buttonUrl?: string
-  buttonLabel?: string
-  buttonVariant?: ButtonProps["variant"]
+  text: PortableTextBlock;
+  bgImg?: string;
+  heading?: string;
+  topImage?: string;
+  topImageAlt?: string;
+  availability?: boolean;
+  buttonUrl?: string;
+  buttonLabel?: string;
+  buttonVariant?: ButtonProps["variant"];
 }) {
   return (
     <section
@@ -71,5 +71,5 @@ export default function GetRobots({
         </Card>
       </Container>
     </section>
-  )
+  );
 }

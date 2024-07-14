@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { rowImages } from "@/constants"
+import { rowImages } from "@/constants/fakeData";
+import Image from "next/image";
 
 export default function Intermission() {
   return (
@@ -15,5 +15,5 @@ export default function Intermission() {
         ))}
       </div>
     </section>
-  )
+  );
 }

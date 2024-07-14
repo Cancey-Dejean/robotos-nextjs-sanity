@@ -10,5 +10,7 @@ export const pageSections = defineType({
     { type: "rarity" },
     { type: "recentBlogs" },
     { type: "faqSection" },
+    { type: "robotGrid" },
+    { type: "newsletter" },
   ],
 })

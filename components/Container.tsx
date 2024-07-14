@@ -14,7 +14,7 @@ export default function Container({
   size?: "base";
   className?: string;
   children: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>) {
+} & React.HTMLAttributes) {
   return (
     <Component
       className={cn("mx-auto w-full", containerSizes[size], className)}

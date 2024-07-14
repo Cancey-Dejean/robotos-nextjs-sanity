@@ -1,5 +1,5 @@
-"use client"
-import { motion, useScroll, useTransform } from "framer-motion"
+"use client";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Image1,
   Image2,
@@ -12,14 +12,14 @@ import {
   Image9,
   Image10,
   Image11,
-} from "@/constants/images"
-import { Button, ButtonProps } from "../ui/button"
-import Availability from "../Availability"
-import { robots } from "@/lib/animations"
-import { cn } from "@/lib/utils"
-import { Link } from "next-view-transitions"
-import Image from "next/image"
-import { NavItem } from "@/types/NavItem"
+} from "@/constants/images";
+import { Button, ButtonProps } from "../ui/button";
+import Availability from "../Availability";
+import { robots } from "@/lib/animations";
+import { cn } from "@/lib/utils";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import { NavItem } from "@/types/NavItem";
 
 export default function Hero({
   heading,
@@ -28,31 +28,31 @@ export default function Hero({
   buttonLabel,
   availability,
 }: {
-  heading?: string
-  buttonUrl?: string
-  buttonLabel?: string
-  buttonVariant?: ButtonProps["variant"]
-  availability?: boolean
+  heading?: string;
+  buttonUrl?: string;
+  buttonLabel?: string;
+  buttonVariant?: ButtonProps["variant"];
+  availability?: boolean;
 } & NavItem) {
-  const { scrollY } = useScroll()
-  const imageContainerStyles = "absolute"
+  const { scrollY } = useScroll();
+  const imageContainerStyles = "absolute";
 
   const imageStyles =
-    "relative h-[100px] w-[150px] sm:h-[150px] sm:w-[200px] lg:h-[213px] lg:w-[250px]"
+    "relative h-[100px] w-[150px] sm:h-[150px] sm:w-[200px] lg:h-[213px] lg:w-[250px]";
 
   // Paralax Hero Effect
-  const textBoxY = useTransform(scrollY, [0, 500], [0, 250])
-  const image1Y = useTransform(scrollY, [0, 500], [0, 300])
-  const image2Y = useTransform(scrollY, [0, 500], [0, 200])
-  const image3Y = useTransform(scrollY, [0, 500], [0, -100])
-  const image4Y = useTransform(scrollY, [0, -250], [0, 250])
-  const image5Y = useTransform(scrollY, [0, 500], [0, 50])
-  const image6Y = useTransform(scrollY, [0, 500], [0, 300])
-  const image7Y = useTransform(scrollY, [0, 500], [0, 350])
-  const image8Y = useTransform(scrollY, [0, 10], [0, -10])
-  const image9Y = useTransform(scrollY, [0, -500], [0, 450])
-  const image10Y = useTransform(scrollY, [0, 500], [0, 500])
-  const image11Y = useTransform(scrollY, [0, 500], [0, 550])
+  const textBoxY = useTransform(scrollY, [0, 500], [0, 250]);
+  const image1Y = useTransform(scrollY, [0, 500], [0, 300]);
+  const image2Y = useTransform(scrollY, [0, 500], [0, 200]);
+  const image3Y = useTransform(scrollY, [0, 500], [0, -100]);
+  const image4Y = useTransform(scrollY, [0, -250], [0, 250]);
+  const image5Y = useTransform(scrollY, [0, 500], [0, 50]);
+  const image6Y = useTransform(scrollY, [0, 500], [0, 300]);
+  const image7Y = useTransform(scrollY, [0, 500], [0, 350]);
+  const image8Y = useTransform(scrollY, [0, 10], [0, -10]);
+  const image9Y = useTransform(scrollY, [0, -500], [0, 450]);
+  const image10Y = useTransform(scrollY, [0, 500], [0, 500]);
+  const image11Y = useTransform(scrollY, [0, 500], [0, 550]);
 
   return (
     <motion.section className="relative flex h-[450px] flex-col justify-center overflow-hidden bg-red sm:h-[800px] md:h-[1048px]">
@@ -63,7 +63,7 @@ export default function Hero({
       >
         <h1
           className={cn(
-            "hero-text text-center font-heading text-[12vw] uppercase leading-none text-white md:text-[15vw] 3xl:text-[270px] [&_span]:transition-all [&_span]:duration-300 [&_span]:ease-in-out"
+            "hero-text text-center font-heading text-[12vw] uppercase leading-none text-white md:text-[15vw] 3xl:text-[270px] [&_span]:transition-all [&_span]:duration-300 [&_span]:ease-in-out",
           )}
         >
           {heading ? (
@@ -102,7 +102,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "-left-[1%] top-[23%] z-[1] hidden rotate-[10deg] 3xl:block",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image1Y, rotate: "10deg" }}
           variants={robots}
@@ -116,7 +116,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "-left-[10%] top-[15%] rotate-[20deg] lg:left-[12%] lg:top-[4%]",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image2Y, rotate: "20deg" }}
           variants={robots}
@@ -130,7 +130,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "left-[25%] top-[5%] -rotate-[20deg] md:left-[40%] xl:left-[28%] xl:top-[20%]",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image3Y, rotate: "-20deg" }}
           variants={robots}
@@ -144,7 +144,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "right-[24%] top-[15%] z-[3] hidden -rotate-[20deg] 2xl:block",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image4Y, rotate: "-20deg" }}
           variants={robots}
@@ -158,7 +158,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "-right-[8%] top-[13%] rotate-[8deg] sm:right-4 sm:top-[5%]",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image5Y, rotate: "8deg" }}
           variants={robots}
@@ -172,7 +172,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "-right-[1%] top-[30%] hidden rotate-[10deg] 3xl:block",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image6Y, rotate: "10deg" }}
           variants={robots}
@@ -186,7 +186,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "-left-[1%] bottom-[3%] hidden -rotate-[23deg] 2xl:block",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image7Y, rotate: "-23deg" }}
           variants={robots}
@@ -200,7 +200,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "z-[3] -rotate-[20deg] lg:bottom-[25%] lg:left-[15vw] lg:rotate-[20deg]",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image8Y, rotate: "20deg" }}
           variants={robots}
@@ -214,7 +214,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "bottom-[5%] right-[35%] hidden -rotate-[11deg] 3xl:block",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image9Y, rotate: "-11deg" }}
           variants={robots}
@@ -228,7 +228,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "bottom-[32%] right-[10vw] hidden -rotate-[20deg] xl:block",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image10Y, rotate: "-20deg" }}
           variants={robots}
@@ -242,7 +242,7 @@ export default function Hero({
         <motion.div
           className={cn(
             "bottom-[10%] right-0 rotate-[14deg] md:bottom-[5%]",
-            imageContainerStyles
+            imageContainerStyles,
           )}
           style={{ y: image11Y, rotate: "14deg" }}
           variants={robots}
@@ -253,5 +253,5 @@ export default function Hero({
         </motion.div>
       </motion.div>
     </motion.section>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-"use client"
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
-import { Link } from "next-view-transitions"
-import { NavItem } from "@/types/NavItem"
-import { motion } from "framer-motion"
-import Container from "../Container"
-import useScrollDirection from "@/hooks/useScrollDirection"
-import useBodyOverflow from "@/hooks/useBodyOverflow"
-import useCloseMobileMenuOnResize from "@/hooks/useCloseMobileMenuOnResize"
-import { NavlinkStyles } from "@/constants/styles"
-import NavLink from "./NavLink"
+"use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Link } from "next-view-transitions";
+import { NavItem } from "@/types/NavItem";
+import { motion } from "framer-motion";
+import Container from "../Container";
+import useScrollDirection from "@/hooks/useScrollDirection";
+import useBodyOverflow from "@/hooks/useBodyOverflow";
+import useCloseMobileMenuOnResize from "@/hooks/useCloseMobileMenuOnResize";
+import { NavlinkStyles } from "@/constants/styles";
+import NavLink from "./NavLink";
 
 export default function HeaderContent({
   menuList,
@@ -18,32 +18,32 @@ export default function HeaderContent({
   logoAlt,
   companyName,
 }: {
-  logoSrc?: string
-  logoAlt?: string
-  menuList: NavItem[]
-  companyName?: string
+  logoSrc?: string;
+  logoAlt?: string;
+  menuList: NavItem[];
+  companyName?: string;
 }) {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [hiddenMenu, setHiddenMenu] = useState(false)
-  const scrollDirection = useScrollDirection()
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [hiddenMenu, setHiddenMenu] = useState(false);
+  const scrollDirection = useScrollDirection();
 
   useEffect(() => {
     if (scrollDirection === "down") {
-      setHiddenMenu(true)
+      setHiddenMenu(true);
     } else {
-      setHiddenMenu(false)
+      setHiddenMenu(false);
     }
-  }, [scrollDirection])
+  }, [scrollDirection]);
 
   // handle body overflow when menu is open
-  useBodyOverflow(menuOpen)
+  useBodyOverflow(menuOpen);
 
   // Close mobile menu on window resize
-  useCloseMobileMenuOnResize(() => setMenuOpen(false))
+  useCloseMobileMenuOnResize(() => setMenuOpen(false));
 
   // Handle mobile menu
   function handleMobileMenu() {
-    setMenuOpen((prev) => !prev)
+    setMenuOpen((prev) => !prev);
   }
 
   return (
@@ -52,7 +52,7 @@ export default function HeaderContent({
       animate={{ y: hiddenMenu ? "-100%" : "0%" }}
       transition={{ duration: 0.1 }}
       className={cn(
-        "fixed left-0 top-0 z-50 w-full p-2 transition-all duration-300 ease-in-out"
+        "fixed left-0 top-0 z-50 w-full p-2 transition-all duration-300 ease-in-out",
       )}
     >
       <Container className="flex items-center justify-between rounded-lg bg-gray-900 px-4 text-white sm:w-fit sm:justify-center">
@@ -92,7 +92,7 @@ export default function HeaderContent({
                 "fixed left-0 top-0 z-[51] flex h-screen w-full max-w-full flex-col items-start justify-center bg-gray-900 px-5 transition-all duration-300 ease-in-out sm:hidden",
                 menuOpen
                   ? "translate-x-0 opacity-100"
-                  : "-translate-x-full opacity-0"
+                  : "-translate-x-full opacity-0",
               )}
             >
               {menuList.map(({ label, cta, newTab, url }) => (
@@ -113,7 +113,7 @@ export default function HeaderContent({
             <button
               className={cn(
                 "hamburger z-[52] flex size-10 cursor-pointer flex-col items-center justify-center gap-1 bg-transparent sm:hidden [&_span]:h-[1px] [&_span]:w-6 [&_span]:bg-white [&_span]:transition-all [&_span]:duration-300 [&_span]:ease-in-out [&_span]:sm:hover:bg-pink-100",
-                menuOpen ? "[&_span]:bg-pink-100" : "[&_span]:bg-white"
+                menuOpen ? "[&_span]:bg-pink-100" : "[&_span]:bg-white",
               )}
               onClick={handleMobileMenu}
             >
@@ -122,7 +122,7 @@ export default function HeaderContent({
                 className={cn(
                   menuOpen
                     ? "!w-[10px] -translate-x-[8px] translate-y-[1px] -rotate-45"
-                    : ""
+                    : "",
                 )}
               />
               <span className="bar-two" />
@@ -130,7 +130,7 @@ export default function HeaderContent({
                 className={cn(
                   menuOpen
                     ? "!w-[10px] -translate-x-[8px] translate-y-[-1px] rotate-45"
-                    : ""
+                    : "",
                 )}
               />
             </button>
@@ -138,5 +138,5 @@ export default function HeaderContent({
         )}
       </Container>
     </motion.div>
-  )
+  );
 }

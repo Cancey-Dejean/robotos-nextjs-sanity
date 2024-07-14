@@ -1,7 +1,7 @@
 export default function AddContent() {
   return (
-    <div>
-      <h1 className="font-bold text-3xl">Add sections in CMS.</h1>
+    <div className="min-h-[sdvh] py-40 text-center">
+      <h1 className="text-3xl font-bold">Add sections in CMS.</h1>
     </div>
-  )
+  );
 }

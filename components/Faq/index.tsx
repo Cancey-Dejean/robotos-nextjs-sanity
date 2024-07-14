@@ -1,34 +1,34 @@
-"use client"
-import React, { useRef } from "react"
-import Container from "../Container"
-import Image from "next/image"
-import SectionTitle from "../SectionTitle"
-import { cn } from "@/lib/utils"
-import { motion, useInView } from "framer-motion"
-import { containerStaggerVariants, faqVariants } from "@/lib/animations"
-import { PortableText, PortableTextBlock } from "next-sanity"
-import { blockImageRenderer } from "@/utils"
+"use client";
+import React, { useRef } from "react";
+import Container from "../Container";
+import Image from "next/image";
+import SectionTitle from "../SectionTitle";
+import { cn } from "@/lib/utils";
+import { motion, useInView } from "framer-motion";
+import { containerStaggerVariants, faqVariants } from "@/lib/animations";
+import { PortableText, PortableTextBlock } from "next-sanity";
+import { blockImageRenderer } from "@/utils";
 
 type Question = {
-  question: string
-  answer: PortableTextBlock
-  iconImage?: string
-  iconImageAlt?: string
-  imgHeight?: number
-  imgWidth?: number
-}
+  question: string;
+  answer: PortableTextBlock;
+  iconImage?: string;
+  iconImageAlt?: string;
+  imgHeight?: number;
+  imgWidth?: number;
+};
 export default function Faq({
   heading,
   items = [],
 }: {
-  heading: string
-  items: Question[]
+  heading: string;
+  items: Question[];
 }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const imageStyles =
-    "relative odd:rotate-[-10deg] even:rotate-[20deg] lg:max-w-[130px] w-[130px] h-[130px]"
+    "relative odd:rotate-[-10deg] even:rotate-[20deg] lg:max-w-[130px] w-[130px] h-[130px]";
 
   return (
     <motion.section
@@ -78,7 +78,7 @@ export default function Faq({
                     />
                   </div>
                 </motion.div>
-              )
+              ),
             )}
           </div>
         )}
@@ -204,5 +204,5 @@ export default function Faq({
         </div>
       </div>
     </motion.section>
-  )
+  );
 }
