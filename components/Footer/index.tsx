@@ -17,8 +17,6 @@ export default async function Footer() {
 
   return (
     <>
-      <Newsletter />
-
       <footer
         id="footer"
         className="bg-gray-900 px-5 py-10 text-center md:py-20"
