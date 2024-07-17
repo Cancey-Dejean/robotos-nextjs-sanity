@@ -15,7 +15,7 @@ export const newsletter = defineType({
       type: "string",
       title: "Title",
     }),
-    defineField({
+    {
       name: "text",
       title: "Text",
       type: "array",
@@ -24,7 +24,7 @@ export const newsletter = defineType({
           type: "block",
         },
       ],
-    }),
+    },
     defineField({
       name: "buttonText",
       type: "string",

@@ -7,4 +7,7 @@ export type CategoryProps = {
   image?: string
   description?: any
   postCount?: number
+  slug: {
+    current: string;
+  };
 }

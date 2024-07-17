@@ -16,11 +16,11 @@ export default defineType({
       title: "Logo Image",
       type: "customImage",
     }),
-    defineField({
+    {
       name: "menu",
       type: "reference",
       to: [{ type: "navigation" }],
-    }),
+    },
   ],
   preview: {
     select: {

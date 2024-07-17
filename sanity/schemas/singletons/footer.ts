@@ -21,12 +21,12 @@ export default defineType({
       title: "Button",
       type: "button",
     }),
-    defineField({
+    {
       name: "text",
       title: "Text",
       type: "array",
       of: [{ type: "block", title: "Block" }],
-    }),
+    },
     defineField({
       name: "newsletter",
       type: "newsletter",

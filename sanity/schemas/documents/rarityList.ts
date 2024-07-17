@@ -13,13 +13,13 @@ export default defineType({
       type: "string",
       validation: (rule) => rule.required(),
     }),
-    defineField({
+    {
       name: "items",
       title: "Items",
       type: "array",
       of: [{ type: "rarityTextRow" }],
       validation: (rule) => rule.required().min(1),
-    }),
+    },
     defineField({
       name: "image",
       type: "customImage",

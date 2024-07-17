@@ -10,6 +10,7 @@ import { dateFormat } from "@/constants";
 import Link from "next/link";
 import Container from "../Container";
 import Card from "../Cards/Card";
+import { CategoryProps } from "@/types/Category";
 
 export default function Post({ post }: { post: SanityDocument }) {
   const {
@@ -81,10 +82,11 @@ export default function Post({ post }: { post: SanityDocument }) {
 
             <div className="flex gap-2">
               <strong>Categories:</strong>
-              {categories.map((category) => (
+              {categories.map((category: CategoryProps) => (
                 <Link
                   href={`/blog/category/${category.slug.current}`}
                   key={category._id}
+                  className={"pointer-events-none no-underline"}
                 >
                   {category.title}
                 </Link>

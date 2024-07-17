@@ -7,15 +7,13 @@ import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries/pages/page";
 import AddContent from "@/components/AddContent";
 import { PageProps } from "@/types/Page";
 
-export async function generateMetadata({params }: PageProps): Promise<Metadata> {
-  const slug = params.slug || "home"; // Default to home if no slug is provided
+export async function generateMetadata({ params }: { params: QueryParams }): Promise<Metadata> {
   const page = await sanityFetch<SanityDocument>({
     query: PAGE_QUERY,
-    params: { slug }
+    params
   });
 
   if (!page) return notFound();
-
 
   return {
     title: page.metaTitle ?? `This is the ${page.metaTitle} Page`,
@@ -41,21 +39,18 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: QueryParams }) {
+  const slug = params.slug || "home";
 
   const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params });
 
+  const pageBuilder = page.pageBuilder;
   if (!page) {
     return notFound();
   }
 
-  const pageBuilder = page.pageBuilder;
-
-
   if (pageBuilder === null) {
     return <AddContent />;
   }
-
-
 
   return <>{pageBuilder.map(PageContent)}</>;
 }

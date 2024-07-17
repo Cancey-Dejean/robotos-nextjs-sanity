@@ -2,7 +2,6 @@ import Image from "next/image";
 import Container from "../Container";
 import SectionTitle from "../SectionTitle";
 import Card from "../Cards/Card";
-import { columns } from "@/constants";
 import { PortableText, PortableTextBlock } from "next-sanity";
 
 type ColumnItem = {

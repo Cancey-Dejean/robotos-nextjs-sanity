@@ -22,12 +22,12 @@ export const rarity = defineType({
       title: "Heading",
       validation: (rule) => rule.required(),
     }),
-    defineField({
+    {
       name: "text",
       title: "Text",
       type: "array",
       of: [{ type: "block", title: "Block" }],
-    }),
+    },
   ],
   initialValue: {
     heading: "Title",
