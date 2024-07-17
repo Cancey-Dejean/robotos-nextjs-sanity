@@ -4,8 +4,6 @@ import { ALL_SETTINGS_QUERY } from "@/sanity/lib/queries/settings";
 import { SanityDocument } from "next-sanity";
 import { Button } from "../ui/button";
 import { PortableText } from "next-sanity";
-import { Input } from "../ui/input";
-import Newsletter from "../Newsletter";
 
 export default async function Footer() {
   const data = await sanityFetch<SanityDocument>({
