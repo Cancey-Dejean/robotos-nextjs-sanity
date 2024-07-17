@@ -108,7 +108,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn("2xl:h-[213px] 2xl:w-[250px]", imageStyles)}>
-            <Image src={Image2} alt="image 1" fill />
+            <Image src={Image2} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -122,7 +122,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image4} alt="image 2" fill />
+            <Image src={Image4} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -136,7 +136,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image6} alt="image 3" fill />
+            <Image src={Image6} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -150,7 +150,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image5} alt="image 4" fill />
+            <Image src={Image5} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -164,7 +164,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image3} alt="image 5" fill />
+            <Image src={Image3} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -178,7 +178,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image1} alt="image 6" fill />
+            <Image src={Image1} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -192,7 +192,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image11} alt="image 7" fill />
+            <Image src={Image11} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -206,7 +206,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image7} alt="image 8" fill />
+            <Image src={Image7} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -220,7 +220,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image10} alt="image 9" fill />
+            <Image src={Image10} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -234,7 +234,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image8} alt="image 10" fill />
+            <Image src={Image8} alt="Decorative image" fill />
           </div>
         </motion.div>
 
@@ -248,7 +248,7 @@ export default function Hero({
           variants={robots}
         >
           <div className={cn(imageStyles)}>
-            <Image src={Image9} alt="image 11" fill />
+            <Image src={Image9} alt="Decorative image" fill />
           </div>
         </motion.div>
       </motion.div>

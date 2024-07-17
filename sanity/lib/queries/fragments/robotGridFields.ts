@@ -1,6 +1,7 @@
-import { groq } from "next-sanity"
+import { groq } from "next-sanity";
 
 export const ROBOT_GRID_FIELDS = groq`
+  "bgImg": bgImage.asset->url,
   heading,
   text,
   items [] {
@@ -8,4 +9,4 @@ export const ROBOT_GRID_FIELDS = groq`
     "mainImage": image.asset->url,
     "mainImageAlt": image.alt,
   }
-`
+`;

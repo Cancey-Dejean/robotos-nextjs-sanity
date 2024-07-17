@@ -27,12 +27,12 @@ export const getRobots = defineType({
       title: "Heading",
       validation: (rule) => rule.required(),
     }),
-    defineField({
+    {
       name: "text",
       title: "Text",
       type: "array",
       of: [{ type: "block", title: "Block" }],
-    }),
+    },
     defineField({
       name: "button",
       title: "Button",

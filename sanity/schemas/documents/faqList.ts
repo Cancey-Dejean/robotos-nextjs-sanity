@@ -1,5 +1,5 @@
-import { IoHomeOutline } from "react-icons/io5"
-import { defineField, defineType } from "sanity"
+import { IoHomeOutline } from "react-icons/io5";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "faqList",
@@ -11,28 +11,29 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.required()
     }),
-    defineField({
+    {
       name: "items",
       title: "Items",
       type: "array",
       of: [{ type: "faqItem" }],
-      validation: (rule) => rule.required().min(1),
-    }),
+      validation: (rule) => rule.required().min(1)
+    }
   ],
   initialValue: {
-    title: "Title",
+    title: "Title"
   },
   preview: {
     select: {
-      title: "title",
+      title: "title"
     },
     prepare(selection) {
-      const { title } = selection
+      const { title } = selection;
       return {
-        title: title || "Label needs to be set",
-      }
-    },
-  },
-})
+        title: title || "Label needs to be set"
+
+      };
+    }
+  }
+});

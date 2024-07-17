@@ -19,7 +19,7 @@ type Question = {
 };
 export default function Faq({
   heading,
-  items = [],
+  items,
 }: {
   heading: string;
   items: Question[];

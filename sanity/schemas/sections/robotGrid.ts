@@ -12,23 +12,28 @@ export const robotGrid = defineType({
       title: "Globals",
     }),
     defineField({
+      name: "bgImage",
+      type: "image",
+      title: "Background Image",
+    }),
+    defineField({
       name: "heading",
       type: "string",
       title: "Heading",
       validation: (rule) => rule.required(),
     }),
-    defineField({
+    {
       name: "text",
       type: "array",
       title: "Text",
       of: [{ type: "block" }],
-    }),
-    defineField({
+    },
+    {
       name: "items",
       type: "array",
       title: "Items",
       of: [{ type: "robotGridItem" }],
-    }),
+    },
   ],
   initialValue: {
     heading: "Title",

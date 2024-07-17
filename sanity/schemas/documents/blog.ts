@@ -17,20 +17,20 @@ export default defineType({
     },
   ],
   fields: [
-    defineField({
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: { type: "author" },
-      group: "content",
-    }),
-    defineField({
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{ type: 'author' }],
+      group: 'content',
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
       group: "content",
-    }),
+    },
     defineField({
       name: "title",
       description: "This field is the title of your project.",
