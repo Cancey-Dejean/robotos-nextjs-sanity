@@ -2,8 +2,7 @@ import { groq } from "next-sanity"
 import { AUTHOR_FIELDS } from "./authorFields"
 
 export const POST_FIELDS = groq`
-  "seoImage": ogImage.asset->url,
-  "seoImageAlt": ogImage.alt,
+  "ogImg": ogImage.asset->url,
   body,
   title,
   excerpt,

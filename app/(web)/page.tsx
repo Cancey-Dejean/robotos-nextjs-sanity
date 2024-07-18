@@ -5,26 +5,16 @@ import { Metadata } from "next";
 import { PageContent } from "@/components/PageContent";
 import { PAGE_QUERY, PAGES_QUERY } from "@/sanity/lib/queries/pages/page";
 import AddContent from "@/components/AddContent";
+import { fetchPageMetadata } from "@/utils/metadata";
 
 
 export async function generateMetadata({ params }: { params: QueryParams }): Promise<Metadata> {
   const slug = params.slug || "home";
-  const page = await sanityFetch<SanityDocument>({
-    query: PAGE_QUERY,
-    params: { slug }
-  });
+  const metadata = await fetchPageMetadata(slug);
 
-  if (!page) return notFound();
+  if (!metadata) return notFound();
 
-  return {
-    title: page.metaTitle ?? `This is the ${page.metaTitle} Page`,
-    description:
-      page.metaDescription ?? `This is the ${page.metaTitle} description`,
-    openGraph: {
-      title: page.metaTitle ?? `This is the ${page.metaTitle} OG Title`,
-      images: [{ url: page.ogImage ?? "" }]
-    }
-  };
+  return metadata;
 }
 
 export async function generateStaticParams() {

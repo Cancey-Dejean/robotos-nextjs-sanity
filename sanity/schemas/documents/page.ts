@@ -39,7 +39,7 @@ export default defineType({
     defineField({
       name: "ogImage",
       title: "OG Image",
-      type: "customImage",
+      type: "image",
       group: "seo",
     }),
     defineField({

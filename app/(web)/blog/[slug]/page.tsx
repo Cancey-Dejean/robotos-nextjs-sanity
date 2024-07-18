@@ -24,7 +24,7 @@ export async function generateMetadata({
     description: post.excerpt ?? `This is the ${post.title} description`,
     openGraph: {
       title: post.title ?? `This is the ${post.title} OG Title`,
-      images: [{ url: post.featuredImage ?? "" }],
+      images: [{ url: post.ogImg ?? "" }],
       publishedTime: format(post._createdAt, dateFormat),
       modifiedTime: post.updatedAt,
       type: "article",
