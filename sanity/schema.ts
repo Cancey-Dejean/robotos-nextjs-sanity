@@ -34,6 +34,7 @@ import { faqItem } from "./schemas/objects/faqItem"
 import { robotGrid } from "./schemas/sections/robotGrid"
 import { robotGridItem } from "./schemas/objects/robotGridItem"
 import { newsletter } from "./schemas/sections/newsletter"
+import { socialMediaLinks } from "./schemas/objects/socialMediaLinks"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -65,6 +66,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     faqItem,
     robotGridItem,
     newsletter,
+    socialMediaLinks,
 
     // Singletons
     category,

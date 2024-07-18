@@ -1,6 +1,6 @@
 export type NavItem = {
   className?: string
-  url?: string
+  url?: string | null
   newTab?: boolean
   label: string
   cta?: boolean

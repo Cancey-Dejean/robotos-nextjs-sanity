@@ -10,5 +10,13 @@ export default defineType({
       title: "Company Name",
       type: "string",
     },
+    {
+      name: "socialMedia",
+      title: "Social Media",
+      type: "socialMediaLinks",
+      options: {
+        collapsable: true,
+      }
+    },
   ],
 })

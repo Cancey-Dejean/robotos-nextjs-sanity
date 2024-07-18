@@ -1,6 +1,7 @@
 import { ImageRow1, ImageRow2, ImageRow3 } from "./images"
+import { NavItem } from "@/types/NavItem";
 
-export const menuList = [
+export const menuList: NavItem[] = [
   {
     label: "Your Stuff",
     url: "/your-stuff",

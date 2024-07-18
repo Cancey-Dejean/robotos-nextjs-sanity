@@ -12,12 +12,7 @@ import useCloseMobileMenuOnResize from "@/hooks/useCloseMobileMenuOnResize";
 import { NavlinkStyles } from "@/constants/styles";
 import NavLink from "./NavLink";
 
-export default function HeaderContent({
-  menuList,
-  logoSrc,
-  logoAlt,
-  companyName,
-}: {
+export default function HeaderContent({ menuList, logoSrc, logoAlt, companyName }: {
   logoSrc?: string;
   logoAlt?: string;
   menuList: NavItem[];
@@ -47,15 +42,16 @@ export default function HeaderContent({
   }
 
   return (
-    <motion.div
+    <motion.header
       initial={{ y: 0 }}
       animate={{ y: hiddenMenu ? "-100%" : "0%" }}
       transition={{ duration: 0.1 }}
       className={cn(
-        "fixed left-0 top-0 z-50 w-full p-2 transition-all duration-300 ease-in-out",
+        "fixed left-0 top-0 z-50 w-full p-2 transition-all duration-300 ease-in-out"
       )}
     >
-      <Container className="flex items-center justify-between rounded-lg bg-gray-900 px-4 text-white sm:w-fit sm:justify-center">
+      <Container
+        className="flex items-center justify-between rounded-lg bg-gray-900 px-4 text-white sm:w-fit sm:justify-center">
         {/* Logo */}
         {logoSrc && (
           <div className="relative z-[52] flex items-center sm:border-r sm:border-r-[#494949]">
@@ -92,7 +88,7 @@ export default function HeaderContent({
                 "fixed left-0 top-0 z-[51] flex h-screen w-full max-w-full flex-col items-start justify-center bg-gray-900 px-5 transition-all duration-300 ease-in-out sm:hidden",
                 menuOpen
                   ? "translate-x-0 opacity-100"
-                  : "-translate-x-full opacity-0",
+                  : "-translate-x-full opacity-0"
               )}
             >
               {menuList.map(({ label, cta, newTab, url }) => (
@@ -113,7 +109,7 @@ export default function HeaderContent({
             <button
               className={cn(
                 "hamburger z-[52] flex size-10 cursor-pointer flex-col items-center justify-center gap-1 bg-transparent sm:hidden [&_span]:h-[1px] [&_span]:w-6 [&_span]:bg-white [&_span]:transition-all [&_span]:duration-300 [&_span]:ease-in-out [&_span]:sm:hover:bg-pink-100",
-                menuOpen ? "[&_span]:bg-pink-100" : "[&_span]:bg-white",
+                menuOpen ? "[&_span]:bg-pink-100" : "[&_span]:bg-white"
               )}
               onClick={handleMobileMenu}
             >
@@ -122,7 +118,7 @@ export default function HeaderContent({
                 className={cn(
                   menuOpen
                     ? "!w-[10px] -translate-x-[8px] translate-y-[1px] -rotate-45"
-                    : "",
+                    : ""
                 )}
               />
               <span className="bar-two" />
@@ -130,13 +126,13 @@ export default function HeaderContent({
                 className={cn(
                   menuOpen
                     ? "!w-[10px] -translate-x-[8px] translate-y-[-1px] rotate-45"
-                    : "",
+                    : ""
                 )}
               />
             </button>
           </nav>
         )}
       </Container>
-    </motion.div>
+    </motion.header>
   );
 }
