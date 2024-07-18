@@ -38,7 +38,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: QueryParams }) {
-  // const slug = params.slug || "home";
 
   const page = await sanityFetch<SanityDocument>({ query: PAGE_QUERY, params });
   if (!page) {
