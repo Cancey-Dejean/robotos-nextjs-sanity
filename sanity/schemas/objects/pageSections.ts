@@ -13,4 +13,21 @@ export const pageSections = defineType({
     { type: "robotGrid" },
     { type: "newsletter" },
   ],
+  options: {
+    insertMenu: {
+      filter: true,
+      showIcons: true,
+      groups: [
+        {
+          name: 'heroes',
+          title: 'Heroes',
+          of: ['hero'],
+        },
+      ],
+      views: [
+        {name: 'grid', previewImageUrl: (schemaTypeName) => `/static/preview-${schemaTypeName}.jpg`},
+        {name: 'list'},
+      ],
+    }
+  },
 })

@@ -8,12 +8,6 @@ export const sectionGlobals = defineType({
   description: "Global settings for sections",
   fields: [
     defineField({
-      name: "previewImage",
-      type: "image",
-      title: "Preview Image",
-      description: "Image size: 1920x1080",
-    }),
-    defineField({
       name: "hideSection",
       title: "Hide Section",
       type: "hideSection",
